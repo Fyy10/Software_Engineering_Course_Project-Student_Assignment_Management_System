@@ -11,9 +11,24 @@ Page({
         hideLoading: false,
         inputShowed: false,
         inputVal: "",
-        classArr: [1, 2, 3],
-        classID: [170001, 10492, 1919],
-        classAlarm: [114, 514, 2333]
+        match_list: ["搜索课程1", "搜索课程2", "搜索课程3", "搜索课程4"],
+        lesson_list: [
+            {
+                name: "课程1",
+                msg: 114,
+                id: 10492
+            },
+            {
+                name: "课程2",
+                msg: 514,
+                id: 170001
+            },
+            {
+                name: "课程3",
+                msg: 2333,
+                id: 1919
+            }
+        ]
     },
     openToast: function() {
         this.setData({

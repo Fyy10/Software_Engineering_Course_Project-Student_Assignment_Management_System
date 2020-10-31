@@ -1,4 +1,4 @@
-<!--pages/teacher/teacher.wxml-->
+<!--pages/login/teacher/teacher.wxml-->
 
 <view>
     <a class="weui-btn weui-btn_mini weui-btn_primary" bindtap="openToast">+</a>
@@ -22,73 +22,20 @@
         <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
     </view>
     <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
-        <view class="weui-cell weui-cell_active weui-cell_access">
+        <view wx:for="{{match_list}}" wx:key="index" class="weui-cell weui-cell_active weui-cell_access">
             <view class="weui-cell__bd weui-cell_primary">
-                <view>搜索课程1</view>
-            </view>
-        </view>
-        <view class="weui-cell weui-cell_active weui-cell_access">
-            <view class="weui-cell__bd weui-cell_primary">
-                <view>搜索课程2</view>
-            </view>
-        </view>
-        <view class="weui-cell weui-cell_active weui-cell_access">
-            <view class="weui-cell__bd weui-cell_primary">
-                <view>搜索课程3</view>
-            </view>
-        </view>
-        <view class="weui-cell weui-cell_active weui-cell_access">
-            <view class="weui-cell__bd weui-cell_primary">
-                <view>搜索课程4</view>
+                <view>{{item}}</view>
             </view>
         </view>
     </view>
 </view>
 
-<view class="weui-cell weui-cell_active weui-cell_access">
+<navigator wx:if="{{!inputShowed}}" class="weui-cell weui-cell_active weui-cell_access" wx:for="{{lesson_list}}" wx:key="index" url="./lesson/lesson">
     <view class="weui-cell__bd">
-        <text style="vertical-align: middle;">课程1</text>
-        <text class="weui-badge" style="margin-left: 5px;">114</text>
+        <text style="vertical-align: middle;">{{item.name}}</text>
+        <text class="weui-badge" style="margin-left: 5px;">{{item.msg}}</text>
     </view>
-    <view class="weui-cell__ft">10492</view>
-</view>
-
-<view class="weui-cell weui-cell_active weui-cell_access">
-    <view class="weui-cell__bd">
-        <text style="vertical-align: middle;">课程2</text>
-        <text class="weui-badge" style="margin-left: 5px;">514</text>
-    </view>
-    <view class="weui-cell__ft">170001</view>
-</view>
-<view class="weui-cell weui-cell_active weui-cell_access">
-    <view class="weui-cell__bd">
-        <text style="vertical-align: middle;">课程3</text>
-        <text class="weui-badge" style="margin-left: 5px;">2</text>
-    </view>
-    <view class="weui-cell__ft">2020</view>
-</view>
-<view class="weui-cell weui-cell_active weui-cell_access">
-    <view class="weui-cell__bd">
-        <text style="vertical-align: middle;">课程4</text>
-        <text class="weui-badge" style="margin-left: 5px;">3</text>
-    </view>
-    <view class="weui-cell__ft">11</view>
-</view>
-
-<navigator url="./lesson/lesson" class="weui-cell weui-cell_active weui-cell_access">
-    <view class="weui-cell__bd">
-        <text style="vertical-align: middle;">课程5</text>
-        <text class="weui-badge" style="margin-left: 5px;">3</text>
-    </view>
-    <view class="weui-cell__ft">01</view>
-</navigator>
-
-<navigator wx:for="{{classArr}}" url="./lesson/lesson" class="weui-cell weui-cell_active weui-cell_access">
-    <view class="weui-cell__bd">
-        <text style="vertical-align: middle;">课程5{{index}}-{{item}}</text>
-        <text class="weui-badge" style="margin-left: 5px;">{{classAlarm[index]}}</text>
-    </view>
-    <view class="weui-cell__ft">{{classID[index]}}</view>
+    <view class="weui-cell__ft">{{item.id}}</view>
 </navigator>
 
 <!-- 成功提示 -->
