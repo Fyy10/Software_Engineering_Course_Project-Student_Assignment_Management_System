@@ -19,6 +19,16 @@ Page({
 
     Confirm: function() {
         if (this.data.inputValue != "") {
+            var pages = getCurrentPages();
+            var currPage = pages[pages.length - 1];
+            var prevPage = pages[pages.length - 2];
+            var lesson = {name: this.data.inputValue, msg: 1, id: 1}
+            var tmp_list = prevPage.data.lesson_list
+            tmp_list.push(lesson)
+            prevPage.setData({
+                lesson_list: tmp_list
+            })
+            // show success message
             this.setData({
                 toast: true
             });

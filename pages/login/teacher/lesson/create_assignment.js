@@ -26,6 +26,14 @@ Page({
 
     Confirm: function() {
         if (this.data.inputName != "" && this.data.inputDisc != "") {
+            var pages = getCurrentPages();
+            var prevPage = pages[pages.length - 2];
+            var tmp_list = prevPage.data.assignment_list;
+            tmp_list.push(this.data.inputName);
+            prevPage.setData({
+                assignment_list: tmp_list
+            })
+            // display success message
             this.setData({
                 toast: true
             });

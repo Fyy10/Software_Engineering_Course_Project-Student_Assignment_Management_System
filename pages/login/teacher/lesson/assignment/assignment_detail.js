@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        student_list: [{name: "学生1", score: "95"}, {name: "学生2", score: ""}]
+        student_list: [{name: "学生1", score: 95}, {name: "学生2", score: ""}]
     },
 
     giveScore: function() {

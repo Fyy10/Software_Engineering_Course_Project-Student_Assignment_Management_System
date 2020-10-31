@@ -7,7 +7,7 @@ Page({
     data: {
         inputShowed: false,
         inputVal: "",
-        match_list: ["搜索课程1", "搜索课程2", "搜索课程3", "搜索课程4"],
+        match_list: [],
         lesson_list: [
             {
                 name: "课程1",
@@ -23,6 +23,26 @@ Page({
                 name: "课程3",
                 msg: 2333,
                 id: 1919
+            },
+            {
+                name: "操作系统",
+                msg: 1,
+                id: 1551
+            },
+            {
+                name: "软件工程",
+                msg: 60,
+                id: 15
+            },
+            {
+                name: "人工智能",
+                msg: 32,
+                id: 1050
+            },
+            {
+                name: "汇编语言",
+                msg: 74,
+                id: 55
             }
         ]
     },
@@ -89,7 +109,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.log(this.data.lesson_list)
     },
 
     /**
