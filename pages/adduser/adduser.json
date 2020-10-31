@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "mp-toptips": "weui-miniprogram/toptips/toptips"
-  },
-  "navigationBarTitleText": "登录"
+  }
 }

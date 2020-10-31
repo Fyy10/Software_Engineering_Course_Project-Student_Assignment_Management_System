@@ -1,4 +1,4 @@
-/**index.wxss**/
+/* pages/adduser/adduser.wxss */
 page {
   height: 100%;
   display: flex;

@@ -1,0 +1,45 @@
+<!--pages/admin/admin.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="page__hd">
+        <h2 class="weui-form__title">管理您的用户</h2>
+        <view class="page__desc">选择您要进行的操作</view>
+    </view>
+    <view class="weui-grids">
+		<a class="weui-grid" bindtap="addTeacher" >
+			<view class="weui-grid__icon">
+				<mp-icon icon="add-friends" size="{{25}}"></mp-icon>
+			</view>
+			<view class="weui-grid__label" >添加新的老师</view>
+		</a>
+		<a class="weui-grid" bindtap="addStudent" >
+			<view class="weui-grid__icon">
+				<mp-icon icon="add-friends" size="{{25}}"></mp-icon>
+			</view>
+			<view class="weui-grid__label">添加新的学生</view>
+		</a>
+		<a class="weui-grid">
+			<view class="weui-grid__icon">
+				<mp-icon icon="add2" size="{{25}}"></mp-icon>
+			</view>
+			<view class="weui-grid__label">添加新的课程</view>
+		</a>
+		<a class="weui-grid" bindtap="manageTeacher">
+			<view class="weui-grid__icon">
+				<mp-icon icon="group-detail" size="{{25}}"></mp-icon>
+			</view>
+			<view class="weui-grid__label">管理现有老师</view>
+		</a>
+		<a class="weui-grid" bindtap="manageStudent">
+			<view class="weui-grid__icon">
+				<mp-icon icon="group-detail" size="{{25}}"></mp-icon>
+			</view>
+			<view class="weui-grid__label">管理现有学生</view>
+		</a>
+		<a class="weui-grid">
+			<view class="weui-grid__icon">
+				<mp-icon icon="note" size="{{25}}"></mp-icon>
+			</view>
+			<view class="weui-grid__label">管理现有课程</view>
+        </a>
+    </view>
+</view>

@@ -34,6 +34,62 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+          teachers: [{
+        name: '陆宇量',
+        id: '250801',
+        password: 'passwd',
+        avatar: '/img/luyuliang.jpg'
+      }, {
+        name: '任菲',
+        id: '250802',
+        password: 'passwd',
+        avatar: '/img/renfei.jpg'
+      }, {
+        name: '阮凯珊',
+        id: '250803',
+        password: 'passwd',
+        avatar: '/img/ruankaishan.jpg'
+      }, {
+        name: '魏嘉宝',
+        id: '250804',
+        password: 'passwd',
+        avatar: '/img/weijiabao.jpg'
+      }, {
+        name: '唐安怡',
+        id: '250805',
+        password: 'passwd',
+        avatar: '/img/tanganyi.jpg'
+      }, {
+        name: '余婉慧',
+        id: '250806',
+        password: 'passwd',
+        avatar: '/img/yuwanhui.jpg'
+      }],
+      students: [{
+        name: '灌嘉键',
+        id: '24045501',
+        password: 'passwd',
+        avatar: '/img/guanjiajian.jpg'
+      }, {
+        name: '陈嘉欣',
+        id: '24045502',
+        password: 'passwd',
+        avatar: '/img/chenjiaxin.jpg'
+      }, {
+        name: '陈美君',
+        id: '24045503',
+        password: 'passwd',
+        avatar: '/img/chenmeijun.jpg'
+      }, {
+        name: '刘维斌',
+        id: '24045505',
+        password: 'passwd',
+        avatar: '/img/liuweibin.jpg'
+      }, {
+        name: '张洁莹',
+        id: '24045506',
+        password: 'passwd',
+        avatar: '/img/zhangjieying.jpg'
+      }]
   }
 })

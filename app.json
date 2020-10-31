@@ -1,20 +1,27 @@
 {
   "pages":[
     "pages/login/login",
-        "pages/login/teacher/teacher",
-        "pages/login/teacher/create_lesson",
-            "pages/login/teacher/lesson/lesson",
-            "pages/login/teacher/lesson/create_assignment",
-                "pages/login/teacher/lesson/assignment/assignment",
-                "pages/login/teacher/lesson/assignment/assignment_detail",
-                "pages/login/teacher/lesson/assignment/student_submission"
+    "pages/admin/admin",
+    "pages/adduser/adduser",
+    "pages/manageuser/manageuser",
+    "pages/modifyuser/modifyuser",
+        "pages/teacher/teacher",
+        "pages/teacher/create_lesson",
+            "pages/teacher/lesson/lesson",
+            "pages/teacher/lesson/create_assignment",
+                "pages/teacher/lesson/assignment/assignment",
+                "pages/teacher/lesson/assignment/assignment_detail",
+                "pages/teacher/lesson/assignment/student_submission"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#0000ff",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "身份认证",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
 }
