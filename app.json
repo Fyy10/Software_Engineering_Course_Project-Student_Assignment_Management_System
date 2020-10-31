@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/login/login",
+        "pages/login/teacher/teacher",
+            "pages/login/teacher/lesson/lesson",
+                "pages/login/teacher/lesson/assignment/assignment"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#0000ff",
+    "navigationBarTitleText": "身份认证",
+    "navigationBarTextStyle":"white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

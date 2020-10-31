@@ -1,0 +1,101 @@
+<!--pages/teacher/teacher.wxml-->
+
+<view>
+    <a class="weui-btn weui-btn_mini weui-btn_primary" bindtap="openToast">+</a>
+</view>
+
+
+<view class="page__bd">
+    <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+        <form class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="text" class="weui-search-bar__input" placeholder="请输入想要搜索的课程名" value="{{inputVal}}"
+                    focus="{{inputShowed}}" bindinput="inputTyping" />
+                <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+            </view>
+            <label class="weui-search-bar__label" bindtap="showInput">
+                <i class="weui-icon-search"></i>
+                <span class="weui-search-bar__text">搜索课程</span>
+            </label>
+        </form>
+        <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+        <view class="weui-cell weui-cell_active weui-cell_access">
+            <view class="weui-cell__bd weui-cell_primary">
+                <view>搜索课程1</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_active weui-cell_access">
+            <view class="weui-cell__bd weui-cell_primary">
+                <view>搜索课程2</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_active weui-cell_access">
+            <view class="weui-cell__bd weui-cell_primary">
+                <view>搜索课程3</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_active weui-cell_access">
+            <view class="weui-cell__bd weui-cell_primary">
+                <view>搜索课程4</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="weui-cell weui-cell_active weui-cell_access">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">课程1</text>
+        <text class="weui-badge" style="margin-left: 5px;">114</text>
+    </view>
+    <view class="weui-cell__ft">10492</view>
+</view>
+
+<view class="weui-cell weui-cell_active weui-cell_access">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">课程2</text>
+        <text class="weui-badge" style="margin-left: 5px;">514</text>
+    </view>
+    <view class="weui-cell__ft">170001</view>
+</view>
+<view class="weui-cell weui-cell_active weui-cell_access">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">课程3</text>
+        <text class="weui-badge" style="margin-left: 5px;">2</text>
+    </view>
+    <view class="weui-cell__ft">2020</view>
+</view>
+<view class="weui-cell weui-cell_active weui-cell_access">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">课程4</text>
+        <text class="weui-badge" style="margin-left: 5px;">3</text>
+    </view>
+    <view class="weui-cell__ft">11</view>
+</view>
+
+<navigator url="./lesson/lesson" class="weui-cell weui-cell_active weui-cell_access">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">课程5</text>
+        <text class="weui-badge" style="margin-left: 5px;">3</text>
+    </view>
+    <view class="weui-cell__ft">01</view>
+</navigator>
+
+<navigator wx:for="{{classArr}}" url="./lesson/lesson" class="weui-cell weui-cell_active weui-cell_access">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">课程5{{index}}-{{item}}</text>
+        <text class="weui-badge" style="margin-left: 5px;">{{classAlarm[index]}}</text>
+    </view>
+    <view class="weui-cell__ft">{{classID[index]}}</view>
+</navigator>
+
+<!-- 成功提示 -->
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+    <view class="weui-mask_transparent"></view>
+    <view class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <view class="weui-toast__content">课程创建成功</view>
+    </view>
+</view>

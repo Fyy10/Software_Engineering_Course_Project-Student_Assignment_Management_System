@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+
+<view>
+    <navigator bindtap="onClick" data-btn="admin" class="to_admin" url="./teacher/teacher">管理员登陆成功</navigator>
+</view>
+
+<view>
+    <navigator bindtap="onClick" data-btn="teacher" class="to_teacher" url="./teacher/teacher">教师登陆成功</navigator>
+</view>
+
+<view>
+    <navigator bindtap="onClick" data-btn="student" class="to_student" url="./teacher/teacher">学生登陆成功</navigator>
+</view>

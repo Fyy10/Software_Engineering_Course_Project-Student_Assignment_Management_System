@@ -1,0 +1,21 @@
+<!--pages/lesson/lesson.wxml-->
+
+<navigator url="./assignment/assignment" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">作业1</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<navigator url="./assignment/assignment" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">作业2</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<navigator url="./assignment/assignment" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">作业3</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<navigator url="./assignment/assignment" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">作业4</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>

@@ -1,0 +1,20 @@
+/* pages/login/login.wxss */
+
+.to_admin{
+    background-color: pink;
+    text-align: center;
+    margin: 10rpx;
+}
+
+.to_teacher{
+    background-color: aqua;
+    text-align: center;
+    margin: 10rpx;
+}
+
+.to_student{
+    background-color: indigo;
+    text-align: center;
+    margin: 10rpx;
+    color: white;
+}
