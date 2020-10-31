@@ -1,0 +1,38 @@
+<!--pages/login/teacher/lesson/create_assignment.wxml-->
+
+<view class="weui-cell weui-cell_active">
+    <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入项目名" focus style="border:1rpx solid #ccc" bindinput="getName" />
+    </view>
+</view>
+
+<view class="weui-cell weui-cell_active">
+    <view class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="请输入项目要求" style="height: 3.3em" bindinput="getDisc"/>
+        <view class="weui-textarea-counter">0/200</view>
+    </view>
+</view>
+
+<view>
+    <a class="weui-btn weui-btn_primary" bindtap="Confirm">确认</a>
+</view>
+
+<!-- 成功提示 -->
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+    <view class="weui-mask_transparent"></view>
+    <view class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <view class="weui-toast__content">作业创建成功</view>
+    </view>
+</view>
+
+<!-- 失败提示 -->
+<view class="fadeIn" wx:if="{{showTip}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__bd">项目名和项目要求不能为空</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="closeTip">知道了</a>
+        </view>
+    </view>
+</view>

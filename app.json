@@ -2,7 +2,9 @@
   "pages":[
     "pages/login/login",
         "pages/login/teacher/teacher",
+        "pages/login/teacher/create_lesson",
             "pages/login/teacher/lesson/lesson",
+            "pages/login/teacher/lesson/create_assignment",
                 "pages/login/teacher/lesson/assignment/assignment"
   ],
   "window":{

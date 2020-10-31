@@ -1,10 +1,5 @@
 <!--pages/login/teacher/teacher.wxml-->
 
-<view>
-    <a class="weui-btn weui-btn_mini weui-btn_primary" bindtap="openToast">+</a>
-</view>
-
-
 <view class="page__bd">
     <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
         <form class="weui-search-bar__form">
@@ -21,13 +16,13 @@
         </form>
         <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
     </view>
-    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+    <navigator url="./lesson/lesson" class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
         <view wx:for="{{match_list}}" wx:key="index" class="weui-cell weui-cell_active weui-cell_access">
             <view class="weui-cell__bd weui-cell_primary">
                 <view>{{item}}</view>
             </view>
         </view>
-    </view>
+    </navigator>
 </view>
 
 <navigator wx:if="{{!inputShowed}}" class="weui-cell weui-cell_active weui-cell_access" wx:for="{{lesson_list}}" wx:key="index" url="./lesson/lesson">
@@ -38,11 +33,6 @@
     <view class="weui-cell__ft">{{item.id}}</view>
 </navigator>
 
-<!-- 成功提示 -->
-<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
-    <view class="weui-mask_transparent"></view>
-    <view class="weui-toast">
-        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
-        <view class="weui-toast__content">课程创建成功</view>
-    </view>
+<view wx:if="{{!inputShowed}}">
+    <a class="weui-btn weui-btn_primary" bindtap="CreateLesson">新建课程</a>
 </view>

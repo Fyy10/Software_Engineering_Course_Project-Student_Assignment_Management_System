@@ -8,6 +8,12 @@ Page({
         assignment_list: ["作业1", "作业2", "作业3", "作业4"]
     },
 
+    CreateAssignment: function() {
+        wx.navigateTo({
+          url: './create_assignment',
+        });
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

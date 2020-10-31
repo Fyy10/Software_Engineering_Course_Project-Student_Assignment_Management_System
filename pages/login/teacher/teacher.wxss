@@ -1,9 +1,1 @@
 /* pages/login/teacher/teacher.wxss */
-
-.weui-cell, .weui-cell_active, .weui-cell_access{
-    background-image: linear-gradient(white, pink);
-    color: black;
-    /* filter: blur(1px); */
-}
-
-.page{text-align: bottom;}

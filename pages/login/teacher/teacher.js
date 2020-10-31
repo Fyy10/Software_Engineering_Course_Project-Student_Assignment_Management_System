@@ -5,10 +5,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        toast: false,
-        loading: false,
-        hideToast: false,
-        hideLoading: false,
         inputShowed: false,
         inputVal: "",
         match_list: ["搜索课程1", "搜索课程2", "搜索课程3", "搜索课程4"],
@@ -30,21 +26,10 @@ Page({
             }
         ]
     },
-    openToast: function() {
-        this.setData({
-            toast: true
-        });
-        setTimeout(() => {
-            this.setData({
-                hideToast: true
-            });
-            setTimeout(() => {
-                this.setData({
-                    toast: false,
-                    hideToast: false,
-                });
-            }, 300);
-        }, 3000);
+    CreateLesson: function() {
+        wx.navigateTo({
+          url: './create_lesson',
+        })
     },
     openLoading: function() {
         this.setData({
