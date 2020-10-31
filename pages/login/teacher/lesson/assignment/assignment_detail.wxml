@@ -1,0 +1,15 @@
+<!--pages/login/teacher/lesson/assignment/assignment_detail.wxml-->
+
+<view class="page__bd">
+    <view class="weui-article">
+        <view class="weui-article__h1">项目名</view>
+        <view class="weui-article__p">项目要求</view>
+    </view>
+</view>
+
+<scroll-view scroll-y>
+    <view wx:for="{{student_list}}" wx:key="index" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="giveScore">
+        <view class="weui-cell__bd">{{item.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{item.score}}</view>
+    </view>
+</scroll-view>

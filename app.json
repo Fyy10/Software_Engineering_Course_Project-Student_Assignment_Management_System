@@ -5,7 +5,9 @@
         "pages/login/teacher/create_lesson",
             "pages/login/teacher/lesson/lesson",
             "pages/login/teacher/lesson/create_assignment",
-                "pages/login/teacher/lesson/assignment/assignment"
+                "pages/login/teacher/lesson/assignment/assignment",
+                "pages/login/teacher/lesson/assignment/assignment_detail",
+                "pages/login/teacher/lesson/assignment/student_submission"
   ],
   "window":{
     "backgroundTextStyle":"light",

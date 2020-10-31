@@ -26,6 +26,7 @@ Page({
             }
         ]
     },
+
     CreateLesson: function() {
         wx.navigateTo({
           url: './create_lesson',
@@ -64,8 +65,10 @@ Page({
         });
     },
     inputTyping: function (e) {
+        var tmp = e.detail.value;
         this.setData({
-            inputVal: e.detail.value
+            inputVal: tmp,
+            match_list: SearchString(this.data.lesson_list, tmp)
         });
     },
     /**
@@ -124,3 +127,14 @@ Page({
 
     }
 });
+
+// get match_list
+function SearchString(list, keyWord) {
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].name.match(keyWord) != null) {
+        arr.push(list[i].name);
+      }
+    }
+    return arr;
+}

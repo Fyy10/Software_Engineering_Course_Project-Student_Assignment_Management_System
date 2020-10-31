@@ -1,61 +1,39 @@
-// pages/login/teacher/lesson/create_assignment.js
+// pages/login/teacher/lesson/assignment/student_submission.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        score: null,
         toast: false,
-        hideToast: false,
-        showTip: false,
-        inputName: "",
-        inputDisc: ""
+        hideToast: false
     },
 
-    getName: function(e) {
+    getInput: function(e) {
         this.setData({
-            inputName: e.detail.value
-        });
+            score: e.detail.value
+        })
     },
 
-    getDisc: function(e) {
+    Submit: function() {
         this.setData({
-            inputDisc: e.detail.value
+            toast: true
         });
-    },
-
-    Confirm: function() {
-        if (this.data.inputName != "" && this.data.inputDisc != "") {
+        setTimeout(() => {
             this.setData({
-                toast: true
+                hideToast: true
             });
             setTimeout(() => {
                 this.setData({
-                    hideToast: true
+                    toast: false,
+                    hideToast: false,
                 });
-                setTimeout(() => {
-                    this.setData({
-                        toast: false,
-                        hideToast: false,
-                    });
-                    wx.navigateBack({
-                        delta: 0,
-                      })          
-                }, 300);
-            }, 1000);
-        }
-        else {
-            // empty name or discription
-            this.setData({
-                showTip: true
-            })
-        }
-    },
-
-    closeTip: function() {
-        this.setData({
-            showTip: false
-        })
+                wx.navigateBack({
+                    delta: 0,
+                  })          
+            }, 300);
+        }, 1000);
     },
 
     /**

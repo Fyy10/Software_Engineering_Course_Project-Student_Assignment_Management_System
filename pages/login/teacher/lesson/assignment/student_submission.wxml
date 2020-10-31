@@ -1,0 +1,26 @@
+<!--pages/login/teacher/lesson/assignment/student_submission.wxml-->
+
+<view class="page__bd">
+    <view class="weui-article">
+        <view class="weui-article__p">学生作业解答</view>
+    </view>
+</view>
+
+<view class="weui-cell weui-cell_active">
+    <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入成绩" focus style="border:1rpx solid #ccc" bindinput="getInput" type="number"/>
+    </view>
+</view>
+
+<view>
+    <a class="weui-btn weui-btn_primary" bindtap="Submit">提交成绩</a>
+</view>
+
+<!-- 成功提示 -->
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+    <view class="weui-mask_transparent"></view>
+    <view class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <view class="weui-toast__content">提交成功</view>
+    </view>
+</view>
