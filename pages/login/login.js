@@ -8,7 +8,9 @@ Page({data: {
     adminusername: 'admin',
     adminpassword: 'adminadmin',
     teacherusername: 'teacher',
-    teacherpassword: 'teacherteacher'
+    teacherpassword: 'teacherteacher',
+    studentusername: 'student',
+    studentpassword: 'studentstudent',
   },
   //事件处理函数
   inputUsername: function (e) {
@@ -38,6 +40,15 @@ Page({data: {
       setTimeout(function () {
         wx.redirectTo({
           url: '../teacher/teacher',
+        })
+      }, 700)
+    } else if (this.data.username == this.data.studentusername && this.data.password == this.data.studentpassword){
+      wx.showToast({
+        title: '欢迎您！学生'
+      })
+      setTimeout(function () {
+        wx.redirectTo({
+          url: '../index/index',
         })
       }, 700)
     } else if (this.data.username == '') {

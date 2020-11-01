@@ -1,0 +1,13 @@
+<!--pages/homework1/homework1.wxml-->
+<view class="index-hd">
+   
+    <view class="index-right">截止日期：2020.11.1</view>
+    <view class="work">作业1</view>
+</view>
+<image class="index-logo" src="/images/1.jpg" role="img"></image>
+
+<button class="btn1" type="primary" plain>上传文件</button>
+<form bindsubmit="onSubmit">
+    <button form-type="submit">提交</button>
+ </form>
+

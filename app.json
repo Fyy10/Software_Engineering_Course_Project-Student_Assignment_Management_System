@@ -11,7 +11,10 @@
             "pages/teacher/lesson/create_assignment",
                 "pages/teacher/lesson/assignment/assignment",
                 "pages/teacher/lesson/assignment/assignment_detail",
-                "pages/teacher/lesson/assignment/student_submission"
+                "pages/teacher/lesson/assignment/student_submission",
+    "pages/index/index",
+    "pages/homework1/homework1",
+    "pages/class1work_index/class1work_index"
   ],
   "window":{
     "backgroundTextStyle":"light",
