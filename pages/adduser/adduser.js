@@ -1,5 +1,6 @@
 // pages/adduser/adduser.js
 const app = getApp()
+const db=wx.cloud.database()//连接数据库
 Page({
 
   /**
@@ -54,7 +55,11 @@ Page({
           password: this.data.password,
           avatar: this.data.files[0]
         }
-        app.globalData.teachers.push(newTeacher)
+        //app.globalData.teachers.push(newTeacher)
+        //上传新老师信息到数据库
+        db.collection("teacherlist").add({
+          data:newTeacher
+        })
       } else {
         var newStudent = {
           name: this.data.name,
@@ -62,7 +67,11 @@ Page({
           password: this.data.password,
           avatar: this.data.files[0]
         }
-        app.globalData.students.push(newStudent)
+        // app.globalData.students.push(newStudent)
+        //上传新学生信息到数据库
+        db.collection("studentlist").add({
+          data:newStudent
+        })
       }
       wx.showToast({
         title: '添加成功',
