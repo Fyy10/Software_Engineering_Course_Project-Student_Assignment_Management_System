@@ -1,4 +1,6 @@
 // pages/login/teacher/lesson/create_assignment.js
+const db=wx.cloud.database()
+const _=db.command
 Page({
 
     /**
@@ -9,7 +11,8 @@ Page({
         hideToast: false,
         showTip: false,
         inputName: "",
-        inputDisc: ""
+        inputDisc: "",
+        lesson_id:''
     },
 
     getName: function(e) {
@@ -26,12 +29,13 @@ Page({
 
     Confirm: function() {
         if (this.data.inputName != "" && this.data.inputDisc != "") {
-            var pages = getCurrentPages();
-            var prevPage = pages[pages.length - 2];
-            var tmp_list = prevPage.data.assignment_list;
-            tmp_list.push(this.data.inputName);
-            prevPage.setData({
-                assignment_list: tmp_list
+            wx.cloud.callFunction({
+                name:"addAssign",
+                data:{
+                    name:this.data.inputName,
+                    disc:this.data.inputDisc,
+                    lesson_id:this.data.lesson_id
+                }
             })
             // display success message
             this.setData({
@@ -70,7 +74,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+           lesson_id:options.lesson_id
+        })
     },
 
     /**

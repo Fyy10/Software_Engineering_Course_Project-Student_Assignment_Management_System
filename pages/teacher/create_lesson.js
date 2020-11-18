@@ -1,4 +1,6 @@
 // pages/login/teacher/create_lesson.js
+const db=wx.cloud.database()//连接数据库
+
 Page({
 
     /**
@@ -8,7 +10,8 @@ Page({
         toast: false,
         hideToast: false,
         showTip: false,
-        inputValue: ""
+        inputValue: "",
+        teacher_id:""
     },
 
     getInput: function(e) {
@@ -16,17 +19,18 @@ Page({
             inputValue: e.detail.value
         });
     },
+    generateUuid: function (length=6){
+        //随机生成不重复的课程号
+        return Number(Math.random().toString().substr(3, length) + Date.now()).toString(10).substr(3, length);
+    },
 
     Confirm: function() {
         if (this.data.inputValue != "") {
-            var pages = getCurrentPages();
-            var currPage = pages[pages.length - 1];
-            var prevPage = pages[pages.length - 2];
-            var lesson = {name: this.data.inputValue, msg: 1, id: 1}
-            var tmp_list = prevPage.data.lesson_list
-            tmp_list.push(lesson)
-            prevPage.setData({
-                lesson_list: tmp_list
+            var lid=this.generateUuid()
+            console.log(lid)
+            var lesson = {name: this.data.inputValue, msg: 1, id: lid, assignname:[], assign_id:[],teacher_id:this.data.teacher_id,students_id:[]}
+            db.collection("lessonlist").add({
+                data:lesson
             })
             // show success message
             this.setData({
@@ -65,7 +69,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            teacher_id:options.teacher_id
+        })
     },
 
     /**

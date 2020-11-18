@@ -1,11 +1,14 @@
 // pages/login/teacher/lesson/assignment/assignment.js
+const db=wx.cloud.database()//连接数据库
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+      assignment_name:"",
+      assignment_id:"",
+      assignment_disc:""
     },
 
     onClick: function() {
@@ -14,11 +17,25 @@ Page({
         })
     },
 
+    setAssignment(){
+      db.collection("assignmentlist").doc(this.data.assignment_id).get()
+      .then(res=>{
+        console.log(res)
+        this.setData({
+          assignment_name:res.data.name,
+          assignment_disc:res.data.disc          
+        })
+      })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.setData({
+        assignment_id:options.assignment_id
+      })
+      this.setAssignment()
     },
 
     /**

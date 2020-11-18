@@ -1,8 +1,8 @@
 <!--pages/login/teacher/lesson/assignment/assignment.wxml-->
 
-<navigator url="./assignment_detail" class="weui-media-box weui-media-box_text">
-    <h4 class="weui-media-box__title">作业一</h4>
-    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+<navigator url="./assignment_detail?assignment_id={{assignment_id}}" class="weui-media-box weui-media-box_text">
+    <h4 class="weui-media-box__title">{{assignment_name}}</h4>
+    <view class="weui-media-box__desc">{{assignment_disc}}</view>
 </navigator>
 
 <view class="weui-media-box weui-media-box_text">

@@ -1,24 +1,46 @@
 // pages/lesson/lesson.js
+const db=wx.cloud.database()//连接数据库
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        assignment_list: ["作业1", "作业2", "作业3", "作业4"]
+        assignment_id_list: [],
+        assignment_list: [],
+        _id:'',
+        teacher:''
     },
 
     CreateAssignment: function() {
         wx.navigateTo({
-          url: './create_assignment',
+          url: './create_assignment?lesson_id='+this.data._id,
         });
     },
 
+    setTeacher(){
+        db.collection("lessonlist").doc(this.data._id).get()
+        .then(res=>{
+            console.log(res)
+            this.setData({
+                teacher:res.data,
+                assignment_id_list:res.data.assign_id,
+                assignment_list:res.data.assignname
+            })
+        })
+    },
+
+    
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            _id:options._id
+        })
+        this.setTeacher()
+        console.log(this.data.teacher)
     },
 
     /**

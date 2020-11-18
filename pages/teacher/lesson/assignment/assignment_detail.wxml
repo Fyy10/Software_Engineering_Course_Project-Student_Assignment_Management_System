@@ -2,8 +2,8 @@
 
 <view class="page__bd">
     <view class="weui-article">
-        <view class="weui-article__h1">项目名</view>
-        <view class="weui-article__p">项目要求</view>
+        <view class="weui-article__h1">{{assignment_name}}</view>
+        <view class="weui-article__p">{{assignment_disc}}</view>
     </view>
 </view>
 

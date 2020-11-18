@@ -8,48 +8,15 @@ Page({
         inputShowed: false,
         inputVal: "",
         match_list: [],
-        lesson_list: [
-            {
-                name: "课程1",
-                msg: 114,
-                id: 10492
-            },
-            {
-                name: "课程2",
-                msg: 514,
-                id: 170001
-            },
-            {
-                name: "课程3",
-                msg: 2333,
-                id: 1919
-            },
-            {
-                name: "操作系统",
-                msg: 1,
-                id: 1551
-            },
-            {
-                name: "软件工程",
-                msg: 60,
-                id: 15
-            },
-            {
-                name: "人工智能",
-                msg: 32,
-                id: 1050
-            },
-            {
-                name: "汇编语言",
-                msg: 74,
-                id: 55
-            }
-        ]
+        lesson_list: [],
+        teacher_id:"",
+        les:["1",'1']
     },
 
     CreateLesson: function() {
+        //新建课程
         wx.navigateTo({
-          url: './create_lesson',
+          url: './create_lesson?teacher_id='+this.data.teacher_id,
         })
     },
     openLoading: function() {
@@ -91,11 +58,28 @@ Page({
             match_list: SearchString(this.data.lesson_list, tmp)
         });
     },
+
+    setLessons(){
+        wx.cloud.callFunction({
+            name:"getLessons",
+            data:{
+                // test:"test",
+                teacher_id: this.data.teacher_id
+            }
+        }).then(res=>{
+            this.setData({
+                lesson_list:res.result.data
+            })
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            teacher_id:options.teacher_id
+        })
+        this.setLessons()
     },
 
     /**
@@ -109,6 +93,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        this.setLessons()
         console.log(this.data.lesson_list)
     },
 
