@@ -82,7 +82,6 @@ Page({
             })
           }
         })
-        
       } else {
         var newStudent = {
           name: this.data.name,
@@ -128,6 +127,52 @@ Page({
         error: '请重新键入'
       })
     }
+  },
+  // 选择excel表格 
+  chooseExcel(){
+    let that = this
+    wx.chooseMessageFile({
+      count: 1,
+      type:'file',
+      success(res){
+        let path = res.tempFiles[0].path;
+        console.log("选择excel成功", path)
+        that.uploadExcel(path);
+      }
+    })
+  },
+  //上传excel到云存储
+  uploadExcel(path){
+    let that = this
+    wx.cloud.uploadFile({
+      cloudPath:new Date().getTime() + '.xls',
+      filePath:path,//文件路径
+      success:res=>{
+        console.log("上传成功", res.fileID)
+        that.jiexi(res.fileID)
+      },
+      fail:err=>{
+        console.log("上传失败",err)
+      }
+    })
+  },
+  //解析excel数据并上传到云数据库
+  //!!!还没有做前端的反馈，用户没有头像，也无法更改头像
+  jiexi(fileId){
+    console.log("开始解析")
+    wx.cloud.callFunction({
+      name:"excel",
+      data:{
+        fileID:fileId,
+        usertype:this.data.usertype
+      },
+      success(res){
+        console.log("解析并上传成功", res)
+      },
+      fail(res){
+        console.log("解析失败",res)
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
