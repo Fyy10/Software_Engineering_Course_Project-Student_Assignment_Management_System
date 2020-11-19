@@ -46,6 +46,7 @@ Page({
         password: e.detail.value
     })
   },
+
   submitForm() {
     if (this.data.name != "" && this.data.id != "" && this.data.password != "" && this.data.avatar != "") {
       if (this.data.usertype == 0) {
@@ -56,10 +57,32 @@ Page({
           avatar: this.data.files[0]
         }
         //app.globalData.teachers.push(newTeacher)
-        //上传新老师信息到数据库
-        db.collection("teacherlist").add({
-          data:newTeacher
+        //判断是否学号学工号重复
+        db.collection("teacherlist").where({
+          id:newTeacher.id
+        }).get()
+        .then(res=>{
+          console.log(res)
+          this.setData ({
+            error: ''
+          })
+          if(res.data.length!=0){
+            console.log(res.data)
+            this.setData ({
+              error: '该用户已存在'
+            })
+          }
+          else{
+            //上传新老师信息到数据库
+            db.collection("teacherlist").add({
+              data:newTeacher
+            })
+            wx.showToast({
+              title: '添加成功',
+            })
+          }
         })
+        
       } else {
         var newStudent = {
           name: this.data.name,
@@ -68,19 +91,38 @@ Page({
           avatar: this.data.files[0]
         }
         // app.globalData.students.push(newStudent)
-        //上传新学生信息到数据库
-        db.collection("studentlist").add({
-          data:newStudent
+        //判断是否学号学工号重复
+        db.collection("studentlist").where({
+          id:newStudent.id
+        }).get()
+        .then(res=>{
+          console.log(res)
+          this.setData ({
+            error: ''
+          })
+          if(res.data.length!=0){
+            console.log(res.data)
+            this.setData ({
+              error: '该用户已存在'
+            })
+          }
+          else{
+            //上传新学生信息到数据库
+            db.collection("studentlist").add({
+              data:newStudent
+            })
+            wx.showToast({
+              title: '添加成功',
+            })
+          }
         })
       }
-      wx.showToast({
-        title: '添加成功',
-      }),
       setTimeout(function () {
         wx.navigateBack({
           delta: 0,
         })
       }, 700)
+      //返回的太快了！！！
     } else {
       this.setData ({
         error: '请重新键入'
