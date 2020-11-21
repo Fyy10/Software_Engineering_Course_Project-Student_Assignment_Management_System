@@ -1,5 +1,6 @@
 {
   "description": "项目配置文件",
+  "cloudfunctionRoot": "cloudfunctions/",
   "packOptions": {
     "ignore": []
   },
@@ -28,17 +29,17 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
+    "enableEngineNative": false,
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.13.2",
-  "projectname": "Student_Assignment_Management_System",
+  "projectname": "Software_Engineering_Course_Project-Student_Assignment_Management_System-main",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -46,7 +47,8 @@
   "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "appid": "wx474a2899bcc590fb",
+  "appid": "wx23a2ab2b394f96c6",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
       "list": []
