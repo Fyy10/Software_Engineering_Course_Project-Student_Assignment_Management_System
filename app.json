@@ -19,7 +19,8 @@
         "pages/teacher/teacher_setting",
         "pages/teacher/lesson/assignment_list",
         "pages/teacher/lesson/student_list",
-        "pages/teacher/lesson/student_info/student_info"
+        "pages/teacher/lesson/student_info/student_info",
+        "pages/teacher/give_score"
     ],
     "window": {
         "backgroundTextStyle": "light",

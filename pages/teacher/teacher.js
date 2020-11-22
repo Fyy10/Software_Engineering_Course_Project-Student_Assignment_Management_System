@@ -20,6 +20,13 @@ Page({
         })
     },
 
+    //goto scoring page
+    goGiveScore: function() {
+        wx.navigateTo({
+          url: './give_score?teacher_id=' + this.data.teacher_id,
+        })
+    },
+
     //goto teacher setting
     goTeacherSetting: function() {
         wx.navigateTo({

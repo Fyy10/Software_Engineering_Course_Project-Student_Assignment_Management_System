@@ -12,7 +12,7 @@
 			</view>
 			<view class="weui-grid__label" >管理课程</view>
         </a>
-        <a class="weui-grid">
+        <a class="weui-grid" bindtap="goGiveScore">
 			<view class="weui-grid__icon">
 				<mp-icon icon="comment" size="{{25}}"></mp-icon>
 			</view>
