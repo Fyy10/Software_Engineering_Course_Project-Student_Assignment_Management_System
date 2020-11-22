@@ -7,7 +7,7 @@ Page({
      */
     data: {
         assignment_id_list: [],
-        assignment_list: ['作业1', 'assignment 2'],
+        assignment_list: [],
         _id:'',
         teacher:''
     },

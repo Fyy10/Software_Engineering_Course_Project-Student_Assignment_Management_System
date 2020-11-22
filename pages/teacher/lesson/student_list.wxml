@@ -1,6 +1,6 @@
 <!--pages/teacher/lesson/student_list.wxml-->
 
-<navigator wx:for="{{student_list}}" wx:key="index" url="./student_info/student_info?student_id={{student_id_list[index]}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">{{item}}</view>
+<navigator wx:for="{{student_list}}" wx:key="index" url="./student_info/student_info?student_id={{student_list[index].student_id}}&lesson_id={{student_list[index].lesson_id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">{{item.student_name}}</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
 </navigator>

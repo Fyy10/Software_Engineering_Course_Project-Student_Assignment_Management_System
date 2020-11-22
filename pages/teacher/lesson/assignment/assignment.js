@@ -29,6 +29,18 @@ Page({
       })
     },
 
+    setStudents(){
+      db.collection("StuAssign").where({
+        assignment_id:this.data.assignment_id
+      }).get()
+      .then(res=>{
+        console.log(res)
+        this.setData({
+          student_list:res.data
+        })
+      })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -37,6 +49,7 @@ Page({
         assignment_id:options.assignment_id
       })
       this.setAssignment()
+      this.setStudents()
     },
 
     /**

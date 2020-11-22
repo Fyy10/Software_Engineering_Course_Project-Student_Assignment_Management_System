@@ -72,6 +72,12 @@
           "pathName": "pages/teacher/lesson/lesson",
           "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
           "scene": null
+        },
+        {
+          "name": "pages/teacher/lesson/assignment/assignment",
+          "pathName": "pages/teacher/lesson/assignment/assignment",
+          "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
+          "scene": null
         }
       ]
     }

@@ -13,6 +13,6 @@
 <!-- student list and scores -->
 <view class="weui-cells__title">学生作业情况</view>
 <navigator wx:for="{{student_list}}" url="./student_submission" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-    <view class="weui-cell__bd">{{item}}</view>
-    <view class="weui-cell__ft weui-cell__ft_in-access">（分数/未批改/未完成）</view>
+    <view class="weui-cell__bd">{{item.student_name}}</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">{{item.status}}</view>
 </navigator>

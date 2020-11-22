@@ -14,22 +14,37 @@ exports.main = async (event, context) => {
     data:{
       name:event.name,
       disc:event.disc,
-      lesson_id:event.lesson_id,
-      // students:{//课程中添加学生的信息，信息存储在作业数据库or学生数据库
-      //   students_id:event.students_id,
-      //   students_name:,
-      //   students_grade:
-      // }
+      lesson_id:event.lesson_id
     }
   }).then(res=>{
     console.log(res)
     console.log(event.lesson_id)
+    var assignment_id=res._id
     db.collection("lessonlist").doc(event.lesson_id)
     .update({
         data:{
             assignname:_.push(event.name),
             assign_id:_.push(res._id)
         }
+    })
+    db.collection("StuLesson").where({
+      lesson_id:event.lesson_id
+    }).get().then(res=>{
+      console.log(res.data[0])
+      for(var i=0;i<res.data.length;i++){
+        db.collection("StuAssign").add({
+          data:{
+            assignment_id:assignment_id,
+            assignment_name:event.name,
+            student_id:res.data[i].student_id,
+            student_name:res.data[i].student_name,
+            status:"未完成",
+            img:""
+          }
+        }).then(res=>{
+          console.log("添加学生作业成功",res)
+        })
+      }
     })
 })
 }

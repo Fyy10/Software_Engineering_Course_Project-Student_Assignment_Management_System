@@ -1,18 +1,21 @@
 // pages/teacher/lesson/student_info/student_info.js
+const db=wx.cloud.database()//连接数据库
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        remove_confirm_msg: false
+        remove_confirm_msg: false,
+        student_id:'',
+        lesson_id:''
     },
 
     // remove confirm msg
     showRemoveMsg: function() {
         this.setData({
             remove_confirm_msg: true
-        });
+        })
     },
 
     // close msg
@@ -29,13 +32,26 @@ Page({
         wx.navigateBack({
           delta: 0,
         })
+        wx.cloud.callFunction({
+            name:"delstulesson",
+            data:{
+                lesson_id:this.data.lesson_id,
+                student_id:this.data.student_id
+            }
+        }).then(res=>{
+            console.log(res)
+        })
+        
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            student_id:options.student_id,
+            lesson_id:options.lesson_id,
+        })
     },
 
     /**
