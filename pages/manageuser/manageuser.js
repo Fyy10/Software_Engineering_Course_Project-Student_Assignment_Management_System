@@ -12,7 +12,10 @@ Page({
     // teachers: app.globalData.teachers,
     // students: app.globalData.students,
     teachers: '',
-    students: ''
+    students: '',
+    inputShowed: false,
+    inputVal: "",
+    match_list: [],
   },
 
   setUsers(usertype){
@@ -42,6 +45,37 @@ Page({
           students:res.result.data
         })
       })
+    }
+  },
+
+  showInput: function () {
+    this.setData({
+        inputShowed: true
+    });
+    },
+  hideInput: function () {
+    this.setData({
+        inputVal: "",
+        inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+        inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    var tmp = e.detail.value;
+    if (this.data.usertype == 0) {
+      this.setData({
+        inputVal: tmp,
+        match_list: SearchString(this.data.teachers, tmp)
+      });
+    } else {
+      this.setData({
+        inputVal: tmp,
+        match_list: SearchString(this.data.students, tmp)
+      });
     }
   },
 
@@ -119,3 +153,14 @@ Page({
 
   }
 })
+
+// get match_list
+function SearchString(list, keyWord) {
+  var arr = [];
+  for (var i = 0; i < list.length; i++) {
+    if (list[i].name.match(keyWord) != null) {
+      arr.push(list[i].name);
+    }
+  }
+  return arr;
+}
