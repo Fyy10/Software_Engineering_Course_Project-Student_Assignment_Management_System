@@ -1,6 +1,7 @@
 <!--pages/teacher/teacher_setting.wxml-->
 <view class="page__hd">
-    <view class="page__title">您好，xxx</view>
+    <image src="{{teacher.avatar}}" style="margin-bottom:20px;width:96px; height: 96px;border-radius: 50%"></image>
+    <view class="page__title">您好，{{teacher.name}}</view>
     <view class="page__desc">账号设置</view>
 </view>
 

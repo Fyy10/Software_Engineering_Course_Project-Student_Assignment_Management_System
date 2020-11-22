@@ -76,6 +76,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        db.collection("teacherlist").doc(this.data.teacher_id).get()
+        .then(res=>{
+            this.setData({
+                teacher_name:res.data.name
+            })
+        })
         this.setLessons()
         console.log(this.data.lesson_list)
     },

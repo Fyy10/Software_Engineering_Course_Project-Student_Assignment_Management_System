@@ -1,4 +1,6 @@
 // pages/teacher/teacher_setting.js
+const db = wx.cloud.database()
+
 Page({
 
     /**
@@ -20,35 +22,38 @@ Page({
         old_pass: '',
         new_pass1: '',
         new_pass2: '',
-        teacher_id: []
+
+        // cloud
+        teacher_id: [],
+        teacher: ''
     },
 
-    getInputUser: function(e) {
+    getInputUser: function (e) {
         this.setData({
             new_user_name: e.detail.value
         });
     },
 
-    getOldPass: function(e) {
+    getOldPass: function (e) {
         this.setData({
             old_pass: e.detail.value
         });
     },
 
-    getNewPass1: function(e) {
+    getNewPass1: function (e) {
         this.setData({
             new_pass1: e.detail.value
         });
     },
 
-    getNewPass2: function(e) {
+    getNewPass2: function (e) {
         this.setData({
             new_pass2: e.detail.value
         });
     },
 
     // show username empty msg
-    showUsernameEmptyMsg: function() {
+    showUsernameEmptyMsg: function () {
         this.setData({
             username_empty_msg: true,
             msg: true
@@ -56,7 +61,7 @@ Page({
     },
 
     // show password error msg
-    showPassErrMsg: function() {
+    showPassErrMsg: function () {
         this.setData({
             pass_error_msg: true,
             msg: true
@@ -64,7 +69,7 @@ Page({
     },
 
     // show password unequal msg
-    showPassUnequalMsg: function() {
+    showPassUnequalMsg: function () {
         this.setData({
             pass_unequal_msg: true,
             msg: true
@@ -72,7 +77,7 @@ Page({
     },
 
     // show password empty msg
-    showPassEmptyMsg: function() {
+    showPassEmptyMsg: function () {
         this.setData({
             pass_empty_msg: true,
             msg: true
@@ -80,7 +85,7 @@ Page({
     },
 
     // show please input msg
-    showInputMsg: function() {
+    showInputMsg: function () {
         this.setData({
             please_input_msg: true,
             msg: true
@@ -88,14 +93,14 @@ Page({
     },
 
     // show update confirm msg
-    showUpdateMsg: function() {
+    showUpdateMsg: function () {
         // 没输入任何信息
         if (this.data.new_user_name == '' && this.data.old_pass == '') {
             this.showInputMsg()
             return
         }
         // 如果密码不正确...
-        if (this.data.old_pass != '' && this.data.old_pass != 'old_pass') {
+        if (this.data.old_pass != '' && this.data.old_pass != this.data.teacher.password) {
             this.showPassErrMsg()
             return
         }
@@ -116,7 +121,7 @@ Page({
     },
 
     // logout confirm
-    showLogoutMsg: function() {
+    showLogoutMsg: function () {
         this.setData({
             logout_confirm_msg: true,
             msg: true
@@ -124,7 +129,7 @@ Page({
     },
 
     // close msg
-    close: function() {
+    close: function () {
         this.setData({
             username_empty_msg: false,
             pass_error_msg: false,
@@ -146,12 +151,45 @@ Page({
     update() {
         // update info
         console.log('update teacher information')
+        if (this.data.new_user_name != '') {
+            wx.cloud.callFunction({
+                name:"upusername",
+                data:{
+                    teacher_id:this.data.teacher_id,
+                    newname: this.data.new_user_name
+                }
+            }).then(res=>{
+                console.log(res)
+            })
+            db.collection('teacherlist').doc(this.data.teacher_id).get()
+            .then(res =>{
+                console.log(res)
+            })
+        }
+        if (this.data.new_pass1 != '') {
+            wx.cloud.callFunction({
+                name:"uppasswd",
+                data:{
+                    teacher_id:this.data.teacher_id,
+                    newpass: this.data.new_pass1
+                }
+            }).then(res=>{
+                console.log(res)
+            })
+        }
         this.openToast()
         this.close()
+        // show updated info
+        db.collection("teacherlist").doc(this.data.teacher_id).get()
+        .then(res => {
+            this.setData({
+                teacher: res.data
+            })
+        })
     },
 
     // update success
-    openToast: function() {
+    openToast: function () {
         this.setData({
             toast: true
         });
@@ -171,7 +209,7 @@ Page({
     // logout confirmed
     logout() {
         wx.reLaunch({
-          url: '/pages/login/login',
+            url: '/pages/login/login',
         })
     },
 
@@ -182,6 +220,12 @@ Page({
         this.setData({
             teacher_id: options.teacher_id
         })
+        db.collection("teacherlist").doc(this.data.teacher_id).get()
+            .then(res => {
+                this.setData({
+                    teacher: res.data
+                })
+            })
     },
 
     /**
@@ -195,7 +239,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        db.collection("teacherlist").doc(this.data.teacher_id).get()
+            .then(res => {
+                this.setData({
+                    teacher: res.data
+                })
+            })
     },
 
     /**
