@@ -1,8 +1,10 @@
 <!--pages/teacher/give_score.wxml-->
-<view wx:for="{{lesson_assignment_list}}" wx:key="index" class="weui-cells__title">
-    <view>{{item.name}}</view>
-    <navigator wx:for="{{item.assignment_list}}" wx:for-item="itm" url="./lesson/assignment/student_submission" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">{{itm}}</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access">（分数/未批改/未完成）</view>
-    </navigator>
+<view wx:for="{{lesson_list}}" wx:key="index" wx:for-item="lesson_itm" class="weui-cells__title">
+    <view>{{lesson_itm.lesson_name}}</view>
+    <view wx:for="{{lesson_itm.assignment_list}}" wx:for-item="assignment_itm">
+        <navigator wx:for="{{assignment_itm.student_list}}" wx:for-item="student_itm" url="./lesson/assignment/student_submission" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">{{assignment_itm.assignment_name}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{student_itm}}</view>
+        </navigator>
+    </view>
 </view>

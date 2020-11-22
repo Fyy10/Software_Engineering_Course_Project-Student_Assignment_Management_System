@@ -5,14 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-        lesson_assignment_list: [
+        lesson_list: [
             {
-                name: "操作系统",
-                assignment_list: ['作业1', '作业2']
+                lesson_name: "操作系统",
+                assignment_list: [{assignment_name: '作业1', student_list: ['zcc', 'fyy']}, {assignment_name: '作业2', student_list: ['fyy']}]
             },
             {
-                name: "软件工程",
-                assignment_list: ['需求分析', '大项目']
+                lesson_name: "软件工程",
+                assignment_list: [{assignment_name: '需求分析', student_list: ['zzc']}, {assignment_name: '大项目', student_list: ['fyy']}]
             }
         ]
     },

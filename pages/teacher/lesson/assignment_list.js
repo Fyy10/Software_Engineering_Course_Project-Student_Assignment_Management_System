@@ -1,4 +1,5 @@
 // pages/teacher/lesson/assignment_list.js
+const db=wx.cloud.database()
 Page({
 
     /**

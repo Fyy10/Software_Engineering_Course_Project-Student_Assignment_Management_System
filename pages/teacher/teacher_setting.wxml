@@ -1,20 +1,53 @@
 <!--pages/teacher/teacher_setting.wxml-->
 <view class="page__hd">
-		<view class="page__title">xxx</view>
-        <view class="page__desc">设置</view>
-
-        <a class="weui-btn weui-btn_warn weui-btn_loading" bindtap="showLogoutMsg"><text class="weui-primary-loading"><i class="weui-primary-loading__dot"></i></text>退出登录</a>
+    <view class="page__title">您好，xxx</view>
+    <view class="page__desc">账号设置</view>
 </view>
+
+<view wx:if="{{!logout_confirm_msg}}">
+    <view class="weui-cells__title">设置用户名</view>
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+            <view class="weui-label">用户名</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入新的用户名" />
+        </view>
+    </view>
+
+    <view class="weui-cells__title">修改密码</view>
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+            <view class="weui-label">旧密码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入旧密码" />
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+            <view class="weui-label">新密码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入新密码" />
+        </view>
+    </view>
+</view>
+
+<a class="weui-btn weui-btn_primary">提交更改</a>
+<a class="weui-btn weui-btn_warn weui-btn_loading" bindtap="showLogoutMsg"><text class="weui-primary-loading"><i
+            class="weui-primary-loading__dot"></i></text>退出登录</a>
+
 
 <!-- logout confirm -->
 <view class="fadeIn" wx:if="{{logout_confirm_msg}}">
-        <view class="weui-mask"></view>
-        <view class="weui-dialog">
-            <view class="weui-dialog__hd"><strong class="weui-dialog__title">退出登录</strong></view>
-            <view class="weui-dialog__bd">确定要退出登录吗？</view>
-            <view class="weui-dialog__ft">
-                <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="logout">确定</a>
-                <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">取消</a>
-            </view>
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__hd"><strong class="weui-dialog__title">退出登录</strong></view>
+        <view class="weui-dialog__bd">确定要退出登录吗？</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="logout">确定</a>
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">取消</a>
         </view>
+    </view>
 </view>

@@ -1,14 +1,14 @@
 <!--pages/login/teacher/lesson/assignment/assignment.wxml-->
 
-<navigator url="./assignment_detail?assignment_id={{assignment_id}}" class="weui-media-box weui-media-box_text">
+<view class="weui-media-box weui-media-box_text">
     <h4 class="weui-media-box__title">{{assignment_name}}</h4>
     <view class="weui-media-box__desc">{{assignment_disc}}</view>
-</navigator>
+</view>
 
-<view class="weui-media-box weui-media-box_text">
+<!-- <view class="weui-media-box weui-media-box_text">
     <h4 class="weui-media-box__title">作业1</h4>
     <view class="weui-media-box__desc">作业1的描述文字</view>
-</view>
+</view> -->
 
 <!-- student list and scores -->
 <view class="weui-cells__title">学生作业情况</view>
