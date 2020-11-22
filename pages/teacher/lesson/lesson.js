@@ -11,7 +11,7 @@ Page({
         assignment_id_list: [],
         assignment_list: [],
         _id:'',
-        teacher:''
+        lesson:''
     },
 
     // delete confirm msg
@@ -32,6 +32,7 @@ Page({
     deleteLesson: function() {
         // delete
         console.log('delete lesson')
+        db.collection("lessonlist").doc(this.data.lesson._id).remove()
         wx.navigateBack({
           delta: 0,
         })
@@ -43,12 +44,12 @@ Page({
         });
     },
 
-    setTeacher(){
+    setLesson(){
         db.collection("lessonlist").doc(this.data._id).get()
         .then(res=>{
             console.log(res)
             this.setData({
-                teacher:res.data,
+                lesson:res.data,
                 assignment_id_list:res.data.assign_id,
                 assignment_list:res.data.assignname
             })
@@ -63,7 +64,7 @@ Page({
         this.setData({
             _id:options._id
         })
-        this.setTeacher()
+        this.setLesson()
         console.log(this.data.teacher)
     },
 

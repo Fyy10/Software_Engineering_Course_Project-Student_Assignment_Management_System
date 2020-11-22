@@ -2,7 +2,7 @@
 
 <view class="page__bd">
 	<view class="page__hd">
-		<view class="page__title">欢迎，xxx</view>
+		<view class="page__title">欢迎，{{teacher_name}}</view>
 		<view class="page__desc">请选择想要进行的操作</view>
 	</view>
     <view class="weui-grids">

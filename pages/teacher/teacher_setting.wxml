@@ -4,14 +4,14 @@
     <view class="page__desc">账号设置</view>
 </view>
 
-<view wx:if="{{!logout_confirm_msg}}">
+<view wx:if="{{!msg}}">
     <view class="weui-cells__title">设置用户名</view>
     <view class="weui-cell weui-cell_active">
         <view class="weui-cell__hd">
             <view class="weui-label">用户名</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="请输入新的用户名" />
+            <input class="weui-input" bindinput="getInputUser" placeholder="请输入新的用户名" />
         </view>
     </view>
 
@@ -21,7 +21,7 @@
             <view class="weui-label">旧密码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="请输入旧密码" />
+            <input class="weui-input" bindinput="getOldPass" placeholder="请输入旧密码" />
         </view>
     </view>
     <view class="weui-cell weui-cell_active">
@@ -29,15 +29,73 @@
             <view class="weui-label">新密码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" placeholder="请输入新密码" />
+            <input class="weui-input" bindinput="getNewPass1" placeholder="请输入新密码" />
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+            <view class="weui-label">重复新密码</view>
+        </view>
+        <view class="weui-cell__bd">
+            <input class="weui-input" bindinput="getNewPass2" placeholder="请重复新密码" />
         </view>
     </view>
 </view>
 
-<a class="weui-btn weui-btn_primary">提交更改</a>
-<a class="weui-btn weui-btn_warn weui-btn_loading" bindtap="showLogoutMsg"><text class="weui-primary-loading"><i
-            class="weui-primary-loading__dot"></i></text>退出登录</a>
+<a class="weui-btn weui-btn_primary" bindtap="showUpdateMsg">提交更改</a>
+<a class="weui-btn weui-btn_warn weui-btn_loading" bindtap="showLogoutMsg">
+    <text class="weui-primary-loading">
+        <i class="weui-primary-loading__dot">
+        </i>
+    </text>
+    退出登录
+</a>
 
+<!-- username empty msg -->
+<view class="fadeIn" wx:if="{{username_empty_msg}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__bd">用户名不能为空</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+        </view>
+    </view>
+</view>
+
+<!-- pass err msg -->
+<view class="fadeIn" wx:if="{{pass_error_msg}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__bd">密码错误</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+        </view>
+    </view>
+</view>
+
+<!-- pass unequal msg -->
+<view class="fadeIn" wx:if="{{pass_unequal_msg}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__bd">新密码不能为空，且两次密码必须相同</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">确定</a>
+        </view>
+    </view>
+</view>
+
+<!-- update confirm -->
+<view class="fadeIn" wx:if="{{update_confirm_msg}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__hd"><strong class="weui-dialog__title">更新信息</strong></view>
+        <view class="weui-dialog__bd">确定要更新信息吗？</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="update">确定</a>
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">取消</a>
+        </view>
+    </view>
+</view>
 
 <!-- logout confirm -->
 <view class="fadeIn" wx:if="{{logout_confirm_msg}}">

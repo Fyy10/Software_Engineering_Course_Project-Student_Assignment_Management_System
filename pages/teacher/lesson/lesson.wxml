@@ -2,7 +2,7 @@
 
 <!-- course name -->
 <view class="page__hd">
-    <view class="page__title">课程名</view>
+    <view class="page__title">{{lesson.name}}</view>
 </view>
 
 <navigator url="./assignment_list?_id={{_id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">

@@ -1,4 +1,5 @@
 // pages/teacher/teacher.js
+const db=wx.cloud.database()
 Page({
 
     /**
@@ -10,6 +11,7 @@ Page({
         match_list: [],
         lesson_list: [],
         teacher_id:"",
+        teacher_name: '',
         les:["1",'1']
     },
 
@@ -53,6 +55,12 @@ Page({
     onLoad: function (options) {
         this.setData({
             teacher_id:options.teacher_id
+        })
+        db.collection("teacherlist").doc(this.data.teacher_id).get()
+        .then(res=>{
+            this.setData({
+                teacher_name:res.data.name
+            })
         })
         this.setLessons()
     },
