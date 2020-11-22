@@ -14,8 +14,8 @@ Page({
     teacherusernames:[],
     teacherpasswords:[],
     teachers_id:[],
-    studentusernames:['1'],//'student',
-    studentpasswords: ['1'],//'studentstudent',
+    studentusernames:[],//'student',
+    studentpasswords: [],//'studentstudent',
     students_id:[]
   },
   //事件处理函数

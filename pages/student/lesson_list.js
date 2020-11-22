@@ -1,5 +1,4 @@
-// pages/student/student.js
-const db=wx.cloud.database()
+// pages/student/lesson_list.js
 Page({
 
     /**
@@ -11,30 +10,47 @@ Page({
         match_list: [],
         lesson_list: [],
         student_id:"",
-        student_name: '',
         les:["1",'1']
     },
 
-    //goto lesson list
-    goLessonList: function() {
-        console.log(this.data.student_id)
-        wx.navigateTo({
-          url: './lesson_list?student_id=' + this.data.student_id,
-        })
+    openLoading: function() {
+        this.setData({
+            loading: true
+        });
+        setTimeout(() => {
+            this.setData({
+                hideLoading: true
+            });
+            setTimeout(() => {
+                this.setData({
+                    loading: false,
+                    hideLoading: false,
+                });
+            }, 300);
+        }, 3000);
     },
-
-    //goto scoring page
-    goJoinLesson: function() {
-        wx.navigateTo({
-          url: './join_lesson?student_id=' + this.data.student_id,
-        })
+    showInput: function () {
+        this.setData({
+            inputShowed: true
+        });
     },
-
-    //goto student setting
-    goStudentSetting: function() {
-        wx.navigateTo({
-          url: './student_setting?student_id=' + this.data.student_id,
-        })
+    hideInput: function () {
+        this.setData({
+            inputVal: "",
+            inputShowed: false
+        });
+    },
+    clearInput: function () {
+        this.setData({
+            inputVal: ""
+        });
+    },
+    inputTyping: function (e) {
+        var tmp = e.detail.value;
+        this.setData({
+            inputVal: tmp,
+            match_list: SearchString(this.data.lesson_list, tmp)
+        });
     },
 
     setLessons(){
@@ -48,6 +64,7 @@ Page({
             this.setData({
                 lesson_list:res.result.data
             })
+            console.log(this.data.lesson_list)
         })
     },
     /**
@@ -56,12 +73,6 @@ Page({
     onLoad: function (options) {
         this.setData({
             student_id:options.student_id
-        })
-        db.collection("studentlist").doc(this.data.student_id).get()
-        .then(res=>{
-            this.setData({
-                student_name:res.data.name
-            })
         })
         this.setLessons()
     },
@@ -77,12 +88,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        db.collection("studentlist").doc(this.data.student_id).get()
-        .then(res=>{
-            this.setData({
-                student_name:res.data.name
-            })
-        })
         this.setLessons()
         console.log(this.data.lesson_list)
     },
@@ -122,3 +127,14 @@ Page({
 
     }
 });
+
+// get match_list
+function SearchString(list, keyWord) {
+    var arr = [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].name.match(keyWord) != null) {
+        arr.push(list[i].name);
+      }
+    }
+    return arr;
+}
