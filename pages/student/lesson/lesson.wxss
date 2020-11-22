@@ -1,4 +1,5 @@
-/**index.wxss**/
+/* pages/homework_index/homework_index.wxss */
+.box{width: 100px;height: 100px;background: red;}
 .ipt{border:1px solid#ddd;height: 70rpx;text-align: center;}
 .iptplace{color:#aaa;font-size:22rpx;}
 .link{height: 80px;}
@@ -37,7 +38,6 @@
   line-height: 1.41176471;
   /* font-size: 32px; */
   font-size: 17px;
-
   transform: translateY(-50%);
   transition: .3s;
 }
@@ -103,14 +103,11 @@
   background-color: var(--weui-BG-2);
   border-radius: 2px;
   overflow: hidden;
-  color: darkkhaki;
 }
 .kind-list-item:first-child {
   margin-top: 0;
 }
-.kind-list-text{
-  flex: 1;
-}
+
 .kind-list-img {
   /* width: 30px;
   height: 30px; */
@@ -122,7 +119,13 @@
   padding: 15px;
   display: flex;
   align-items: center;
+  flex-direction:row;
+  justify-content: space-between;
   transition: opacity .3s;
+}
+.microbutton{
+  width:20px;
+
 }
 .kind-list-item-hd-show {
   opacity: .2;
@@ -133,4 +136,19 @@
 }
 .kind-list-item-bd-show {
   height: auto;
+}
+
+/*作业分框*/
+.info_1{
+  border: 3px solid #87CEFA !important;
+  border-radius: 5px !important;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
+  background-color: #ffffff !important;
+  position: relative !important;
+  
+}
+
+.microbutton{
+  margin-top: 10px !important;
 }

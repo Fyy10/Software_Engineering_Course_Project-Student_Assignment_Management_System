@@ -1,0 +1,5 @@
+/* pages/student/join_lesson.wxss */
+
+.cell__right {
+  margin-right: 5px
+}

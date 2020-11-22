@@ -5,6 +5,7 @@
         "pages/adduser/adduser",
         "pages/manageuser/manageuser",
         "pages/modifyuser/modifyuser",
+
         "pages/teacher/teacher",
         "pages/teacher/create_lesson",
         "pages/teacher/lesson/lesson",
@@ -12,20 +13,22 @@
         "pages/teacher/lesson/assignment/assignment",
         "pages/teacher/lesson/assignment/assignment_detail",
         "pages/teacher/lesson/assignment/student_submission",
-        "pages/index/index",
-        "pages/homework1/homework1",
-        "pages/class1work_index/class1work_index",
         "pages/teacher/lesson_list",
         "pages/teacher/teacher_setting",
         "pages/teacher/lesson/assignment_list",
         "pages/teacher/lesson/student_list",
         "pages/teacher/lesson/student_info/student_info",
-        "pages/teacher/give_score"
+        "pages/teacher/give_score",
+
+        "pages/student/student",
+        "pages/student/join_lesson",
+        "pages/student/lesson/lesson",
+        "pages/student/lesson/homework1/homework1"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "身份认证",
+        "navigationBarTitleText": "学生作业项目管理系统",
         "navigationBarTextStyle": "black"
     },
     "style": "v2",

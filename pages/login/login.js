@@ -14,8 +14,8 @@ Page({
     teacherusernames:[],
     teacherpasswords:[],
     teachers_id:[],
-    studentusernames:[],//'student',
-    studentpasswords: [],//'studentstudent',
+    studentusernames:['1'],//'student',
+    studentpasswords: ['1'],//'studentstudent',
     students_id:[]
   },
   //事件处理函数
@@ -73,7 +73,7 @@ Page({
           })
           setTimeout(function () {
             wx.redirectTo({
-              url: '../index/index?student_id='+student_id,//添加传入的参数
+              url: '../student/student?student_id='+student_id,//添加传入的参数
             })
           }, 700)
         }
@@ -83,7 +83,7 @@ Page({
           error: '用户名或密码错误'
         })
       }
-    }  
+    }
   },
 
   /**
