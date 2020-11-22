@@ -1,0 +1,41 @@
+<!--pages/teacher/lesson_list.wxml-->
+
+<view class="page__bd">
+    <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+        <form class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="text" class="weui-search-bar__input" placeholder="请输入想要搜索的课程名" value="{{inputVal}}"
+                    focus="{{inputShowed}}" bindinput="inputTyping" />
+                <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+            </view>
+            <label class="weui-search-bar__label" bindtap="showInput">
+                <i class="weui-icon-search"></i>
+                <span class="weui-search-bar__text">搜索课程</span>
+            </label>
+        </form>
+        <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+    </view>
+    <!-- match list -->
+    <navigator url="./lesson/lesson" class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+        <view wx:for="{{match_list}}" wx:key="index" class="weui-cell weui-cell_active weui-cell_access">
+            <view class="weui-cell__bd weui-cell_primary">
+                <view>{{item}}</view>
+            </view>
+        </view>
+    </navigator>
+
+    <!-- normal lesson list -->
+    <navigator wx:if="{{!inputShowed}}" class="weui-cell weui-cell_active weui-cell_access" wx:for="{{lesson_list}}" wx:key="index" wx:for-index="idx" url="./lesson/lesson?_id={{lesson_list[idx]._id}}">
+    <view class="weui-cell__bd">
+        <text style="vertical-align: middle;">{{item.name}}</text>
+        <text class="weui-badge" style="margin-left: 5px;">{{item.msg}}</text>
+    </view>
+    <view class="weui-cell__ft">{{item.id}}</view>
+    </navigator>
+
+    <!-- create lesson button -->
+    <view wx:if="{{!inputShowed}}">
+        <a class="weui-btn weui-btn_primary" bindtap="CreateLesson">新建课程</a>
+    </view>
+</view>

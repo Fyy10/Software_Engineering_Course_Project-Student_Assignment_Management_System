@@ -1,0 +1,10 @@
+<!--pages/teacher/lesson/assignment_list.wxml-->
+
+<navigator wx:for="{{assignment_list}}" wx:key="index" url="./assignment/assignment?assignment_id={{assignment_id_list[index]}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">{{item}}</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<view>
+    <a class="weui-btn weui-btn_primary" bindtap="CreateAssignment">发布新作业</a>
+</view>
