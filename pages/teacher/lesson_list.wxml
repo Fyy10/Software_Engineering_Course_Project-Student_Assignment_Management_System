@@ -29,7 +29,7 @@
     <navigator wx:if="{{!inputShowed}}" class="weui-cell weui-cell_active weui-cell_access" wx:for="{{lesson_list}}" wx:key="index" wx:for-index="idx" url="./lesson/lesson?_id={{lesson_list[idx]._id}}">
     <view class="weui-cell__bd">
         <text style="vertical-align: middle;">{{item.name}}</text>
-        <text class="weui-badge" style="margin-left: 5px;">{{item.msg}}</text>
+        <!-- <text class="weui-badge" style="margin-left: 5px;">{{item.msg}}</text> -->
     </view>
     <view class="weui-cell__ft">{{item.id}}</view>
     </navigator>

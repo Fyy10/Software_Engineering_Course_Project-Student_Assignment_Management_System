@@ -1,6 +1,6 @@
 <!--pages/teacher/lesson/student_info/student_info.wxml-->
 
-<view>学生信息显示</view>
+<!-- <view>学生信息显示</view> -->
 
 <view>
     <a class="weui-btn weui-btn_warn" bindtap="showRemoveMsg">从课程中移除</a>
