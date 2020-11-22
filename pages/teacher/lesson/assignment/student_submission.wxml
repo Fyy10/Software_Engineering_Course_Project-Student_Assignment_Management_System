@@ -1,11 +1,19 @@
 <!--pages/login/teacher/lesson/assignment/student_submission.wxml-->
 
+<view class="weui-media-box weui-media-box_text">
+    <h4 class="weui-media-box__title">作业1</h4>
+    <view class="weui-media-box__desc">作业1的描述文字</view>
+</view>
+
 <view class="page__bd">
     <view class="weui-article">
-        <view class="weui-article__p">学生作业解答</view>
+        <view class="weui-article__p">学生回答：</view>
     </view>
 </view>
 
+<!-- 这里要放提交的作业图片 -->
+
+<!-- score -->
 <view class="weui-cell weui-cell_active">
     <view class="weui-cell__bd">
         <input class="weui-input" placeholder="请输入成绩" focus style="border:1rpx solid #ccc" bindinput="getInput" type="number"/>

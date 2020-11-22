@@ -1,0 +1,18 @@
+<!--pages/teacher/lesson/student_info/student_info.wxml-->
+
+<view>
+    <a class="weui-btn weui-btn_warn" bindtap="showRemoveMsg">从课程中移除</a>
+</view>
+
+<!-- remove confirm -->
+<view class="fadeIn" wx:if="{{remove_confirm_msg}}">
+        <view class="weui-mask"></view>
+        <view class="weui-dialog">
+            <view class="weui-dialog__hd"><strong class="weui-dialog__title">移除学生</strong></view>
+            <view class="weui-dialog__bd">确定要从课程中移除该学生吗？此操作不可撤销。</view>
+            <view class="weui-dialog__ft">
+                <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="removeStudent">确定</a>
+                <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">取消</a>
+            </view>
+        </view>
+</view>

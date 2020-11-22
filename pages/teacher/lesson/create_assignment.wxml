@@ -9,7 +9,6 @@
 <view class="weui-cell weui-cell_active">
     <view class="weui-cell__bd">
         <textarea class="weui-textarea" placeholder="请输入项目要求" style="height: 3.3em" bindinput="getDisc"/>
-        <view class="weui-textarea-counter">0/200</view>
     </view>
 </view>
 

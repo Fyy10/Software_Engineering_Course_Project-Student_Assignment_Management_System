@@ -8,7 +8,8 @@ Page({
     data: {
       assignment_name:"",
       assignment_id:"",
-      assignment_disc:""
+      assignment_disc:"",
+      student_list: ['学生1']
     },
 
     onClick: function() {

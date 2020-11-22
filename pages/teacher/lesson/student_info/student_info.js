@@ -1,31 +1,33 @@
-// pages/teacher/lesson/assignment_list.js
+// pages/teacher/lesson/student_info/student_info.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        assignment_id_list: [],
-        assignment_list: ['作业1', 'assignment 2'],
-        _id:'',
-        teacher:''
+        remove_confirm_msg: false
     },
 
-    CreateAssignment: function() {
-        wx.navigateTo({
-          url: './create_assignment?lesson_id='+this.data._id,
+    // remove confirm msg
+    showRemoveMsg: function() {
+        this.setData({
+            remove_confirm_msg: true
         });
     },
 
-    setTeacher(){
-        db.collection("lessonlist").doc(this.data._id).get()
-        .then(res=>{
-            console.log(res)
-            this.setData({
-                teacher:res.data,
-                assignment_id_list:res.data.assign_id,
-                assignment_list:res.data.assignname
-            })
+    // close msg
+    close: function() {
+        this.setData({
+            remove_confirm_msg: false
+        });
+    },
+
+    // remove student confirmed
+    removeStudent: function() {
+        // delete
+        console.log('remove student')
+        wx.navigateBack({
+          delta: 0,
         })
     },
 
@@ -33,11 +35,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            _id:options._id
-        })
-        this.setTeacher()
-        console.log(this.data.teacher)
+
     },
 
     /**
@@ -51,7 +49,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setTeacher()
+
     },
 
     /**
