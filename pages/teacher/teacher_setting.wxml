@@ -21,7 +21,7 @@
             <view class="weui-label">旧密码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" bindinput="getOldPass" placeholder="请输入旧密码" />
+            <input class="weui-input" password bindinput="getOldPass" placeholder="请输入旧密码" />
         </view>
     </view>
     <view class="weui-cell weui-cell_active">
@@ -29,7 +29,7 @@
             <view class="weui-label">新密码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" bindinput="getNewPass1" placeholder="请输入新密码" />
+            <input class="weui-input" password bindinput="getNewPass1" placeholder="请输入新密码" />
         </view>
     </view>
     <view class="weui-cell weui-cell_active">
@@ -37,7 +37,7 @@
             <view class="weui-label">重复新密码</view>
         </view>
         <view class="weui-cell__bd">
-            <input class="weui-input" bindinput="getNewPass2" placeholder="请重复新密码" />
+            <input class="weui-input" password bindinput="getNewPass2" placeholder="请重复新密码" />
         </view>
     </view>
 </view>
@@ -57,7 +57,7 @@
     <view class="weui-dialog">
         <view class="weui-dialog__bd">用户名不能为空</view>
         <view class="weui-dialog__ft">
-            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">确定</a>
         </view>
     </view>
 </view>
@@ -66,9 +66,9 @@
 <view class="fadeIn" wx:if="{{pass_error_msg}}">
     <view class="weui-mask"></view>
     <view class="weui-dialog">
-        <view class="weui-dialog__bd">密码错误</view>
+        <view class="weui-dialog__bd">旧密码错误</view>
         <view class="weui-dialog__ft">
-            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">知道了</a>
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">确定</a>
         </view>
     </view>
 </view>
@@ -77,7 +77,29 @@
 <view class="fadeIn" wx:if="{{pass_unequal_msg}}">
     <view class="weui-mask"></view>
     <view class="weui-dialog">
-        <view class="weui-dialog__bd">新密码不能为空，且两次密码必须相同</view>
+        <view class="weui-dialog__bd">两次输入新密码必须相同</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">确定</a>
+        </view>
+    </view>
+</view>
+
+<!-- pass empty msg -->
+<view class="fadeIn" wx:if="{{pass_empty_msg}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__bd">新密码不能为空</view>
+        <view class="weui-dialog__ft">
+            <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">确定</a>
+        </view>
+    </view>
+</view>
+
+<!-- please input msg -->
+<view class="fadeIn" wx:if="{{please_input_msg}}">
+    <view class="weui-mask"></view>
+    <view class="weui-dialog">
+        <view class="weui-dialog__bd">请输入要更新的信息，若要更新密码则需要输入旧密码</view>
         <view class="weui-dialog__ft">
             <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">确定</a>
         </view>
@@ -89,11 +111,20 @@
     <view class="weui-mask"></view>
     <view class="weui-dialog">
         <view class="weui-dialog__hd"><strong class="weui-dialog__title">更新信息</strong></view>
-        <view class="weui-dialog__bd">确定要更新信息吗？</view>
+        <view class="weui-dialog__bd">确定要更新信息吗？未输入的信息不会更新</view>
         <view class="weui-dialog__ft">
             <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="update">确定</a>
             <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">取消</a>
         </view>
+    </view>
+</view>
+
+<!-- update success -->
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+    <view class="weui-mask_transparent"></view>
+    <view class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <view class="weui-toast__content">修改成功</view>
     </view>
 </view>
 

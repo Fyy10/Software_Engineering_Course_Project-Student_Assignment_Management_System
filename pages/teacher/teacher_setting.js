@@ -5,12 +5,17 @@ Page({
      * 页面的初始数据
      */
     data: {
+        toast: false,
+        hideToast: false,
         username_empty_msg: false,
         pass_error_msg: false,
         pass_unequal_msg: false,
+        pass_empty_msg: false,
+        please_input_msg: false,
         update_confirm_msg: false,
         logout_confirm_msg: false,
         msg: false,
+        // new_user_name=old username
         new_user_name: '',
         old_pass: '',
         new_pass1: '',
@@ -66,29 +71,48 @@ Page({
         })
     },
 
+    // show password empty msg
+    showPassEmptyMsg: function() {
+        this.setData({
+            pass_empty_msg: true,
+            msg: true
+        })
+    },
+
+    // show please input msg
+    showInputMsg: function() {
+        this.setData({
+            please_input_msg: true,
+            msg: true
+        })
+    },
+
     // show update confirm msg
     showUpdateMsg: function() {
-        if (this.data.new_user_name == '') {
-            this.showUsernameEmptyMsg()
+        // 没输入任何信息
+        if (this.data.new_user_name == '' && this.data.old_pass == '') {
+            this.showInputMsg()
             return
         }
         // 如果密码不正确...
-        // if (this.data.old_pass != 'old_pass') {
-        //     this.showPassErrMsg()
-        //     return
-        // }
+        if (this.data.old_pass != '' && this.data.old_pass != 'old_pass') {
+            this.showPassErrMsg()
+            return
+        }
+        // 两次密码不相等
         if (this.data.new_pass1 != this.data.new_pass2) {
             this.showPassUnequalMsg()
+            return
+        }
+        // 新密码为空
+        if (this.data.old_pass != '' && this.data.new_pass1 == '') {
+            this.showPassEmptyMsg()
             return
         }
         this.setData({
             update_confirm_msg: true,
             msg: true
         })
-    },
-
-    // update teacher info
-    commitUpdate: function() {
     },
 
     // logout confirm
@@ -105,9 +129,12 @@ Page({
             username_empty_msg: false,
             pass_error_msg: false,
             pass_unequal_msg: false,
+            pass_empty_msg: false,
+            please_input_msg: false,
             update_confirm_msg: false,
             logout_confirm_msg: false,
             msg: false,
+            // clear buffer
             new_user_name: '',
             old_pass: '',
             new_pass1: '',
@@ -119,9 +146,26 @@ Page({
     update() {
         // update info
         console.log('update teacher information')
-        wx.navigateBack({
-          delta: 0,
-        })
+        this.openToast()
+        this.close()
+    },
+
+    // update success
+    openToast: function() {
+        this.setData({
+            toast: true
+        });
+        setTimeout(() => {
+            this.setData({
+                hideToast: true
+            });
+            setTimeout(() => {
+                this.setData({
+                    toast: false,
+                    hideToast: false,
+                });
+            }, 300);
+        }, 3000);
     },
 
     // logout confirmed
