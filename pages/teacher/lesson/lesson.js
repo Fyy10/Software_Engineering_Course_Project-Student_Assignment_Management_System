@@ -7,10 +7,34 @@ Page({
      * 页面的初始数据
      */
     data: {
+        delete_confirm_msg: false,
         assignment_id_list: [],
         assignment_list: [],
         _id:'',
         teacher:''
+    },
+
+    // delete confirm msg
+    showDeleteMsg: function() {
+        this.setData({
+            delete_confirm_msg: true
+        });
+    },
+
+    // close msg
+    close: function() {
+        this.setData({
+            delete_confirm_msg: false
+        });
+    },
+
+    // delete lesson confirmed
+    deleteLesson: function() {
+        // delete
+        console.log('delete lesson')
+        wx.navigateBack({
+          delta: 0,
+        })
     },
 
     CreateAssignment: function() {

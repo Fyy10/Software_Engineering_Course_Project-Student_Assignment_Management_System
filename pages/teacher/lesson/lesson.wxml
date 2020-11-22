@@ -1,10 +1,42 @@
 <!--pages/lesson/lesson.wxml-->
 
-<navigator wx:for="{{assignment_list}}" wx:key="index" url="./assignment/assignment?assignment_id={{assignment_id_list[index]}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+<navigator url="./assignment_list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">作业列表</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<navigator url="./student_list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">学生列表</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator>
+
+<!-- <navigator wx:for="{{assignment_list}}" wx:key="index" url="./assignment/assignment?assignment_id={{assignment_id_list[index]}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__bd">{{item}}</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+</navigator> -->
+
+<view>
+    <a class="weui-btn weui-btn_warn" bindtap="showDeleteMsg">删除课程</a>
+</view>
+
+<!-- delete confirm -->
+<view class="fadeIn" wx:if="{{delete_confirm_msg}}">
+        <view class="weui-mask"></view>
+        <view class="weui-dialog">
+            <view class="weui-dialog__hd"><strong class="weui-dialog__title">删除课程</strong></view>
+            <view class="weui-dialog__bd">确定要删除课程吗？此操作不可撤销。</view>
+            <view class="weui-dialog__ft">
+                <a class="weui-dialog__btn weui-dialog__btn_default" bindtap="deleteLesson">确定</a>
+                <a class="weui-dialog__btn weui-dialog__btn_primary" bindtap="close">取消</a>
+            </view>
+        </view>
+</view>
+
+<!-- <navigator wx:for="{{assignment_list}}" wx:key="index" url="./assignment/assignment?assignment_id={{assignment_id_list[index]}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">{{item}}</view>
     <view class="weui-cell__ft weui-cell__ft_in-access"></view>
 </navigator>
 
 <view>
     <a class="weui-btn weui-btn_primary" bindtap="CreateAssignment">发布新作业</a>
-</view>
+</view> -->

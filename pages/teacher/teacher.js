@@ -13,50 +13,18 @@ Page({
         les:["1",'1']
     },
 
-    CreateLesson: function() {
-        //新建课程
+    //goto lesson list
+    goLessonList: function() {
         wx.navigateTo({
-          url: './create_lesson?teacher_id='+this.data.teacher_id,
+          url: './lesson_list?teacher_id=' + this.data.teacher_id,
         })
     },
-    openLoading: function() {
-        this.setData({
-            loading: true
-        });
-        setTimeout(() => {
-            this.setData({
-                hideLoading: true
-            });
-            setTimeout(() => {
-                this.setData({
-                    loading: false,
-                    hideLoading: false,
-                });
-            }, 300);
-        }, 3000);
-    },
-    showInput: function () {
-        this.setData({
-            inputShowed: true
-        });
-    },
-    hideInput: function () {
-        this.setData({
-            inputVal: "",
-            inputShowed: false
-        });
-    },
-    clearInput: function () {
-        this.setData({
-            inputVal: ""
-        });
-    },
-    inputTyping: function (e) {
-        var tmp = e.detail.value;
-        this.setData({
-            inputVal: tmp,
-            match_list: SearchString(this.data.lesson_list, tmp)
-        });
+
+    //goto teacher setting
+    goTeacherSetting: function() {
+        wx.navigateTo({
+          url: './teacher_setting?teacher_id=' + this.data.teacher_id,
+        })
     },
 
     setLessons(){
@@ -132,14 +100,3 @@ Page({
 
     }
 });
-
-// get match_list
-function SearchString(list, keyWord) {
-    var arr = [];
-    for (var i = 0; i < list.length; i++) {
-      if (list[i].name.match(keyWord) != null) {
-        arr.push(list[i].name);
-      }
-    }
-    return arr;
-}

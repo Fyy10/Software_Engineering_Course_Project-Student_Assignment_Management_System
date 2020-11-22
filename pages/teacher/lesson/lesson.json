@@ -1,6 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "作业列表",
-  "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#ffdb4d"
+  "navigationBarTitleText": "课程管理",
+  "navigationBarTextStyle": "black"
 }

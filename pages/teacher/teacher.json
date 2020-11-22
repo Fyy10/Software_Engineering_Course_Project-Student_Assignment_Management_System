@@ -1,8 +1,9 @@
 {
-    "usingComponents": {},
-    "navigationBarBackgroundColor": "#e5ffb3",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "课程列表",
-    "backgroundColor": "#eeeeee",
-    "backgroundTextStyle": "light"
+    "usingComponents": {
+        "mp-icon": "weui-miniprogram/icon/icon"
+    },
+    "navigationBarTitleText": "教师页面",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
 }

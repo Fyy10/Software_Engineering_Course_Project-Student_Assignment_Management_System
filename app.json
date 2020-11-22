@@ -1,30 +1,34 @@
 {
-  "pages":[
-    "pages/login/login",
-    "pages/admin/admin",
-    "pages/adduser/adduser",
-    "pages/manageuser/manageuser",
-    "pages/modifyuser/modifyuser",
+    "pages": [
+        "pages/login/login",
+        "pages/admin/admin",
+        "pages/adduser/adduser",
+        "pages/manageuser/manageuser",
+        "pages/modifyuser/modifyuser",
         "pages/teacher/teacher",
         "pages/teacher/create_lesson",
-            "pages/teacher/lesson/lesson",
-            "pages/teacher/lesson/create_assignment",
-                "pages/teacher/lesson/assignment/assignment",
-                "pages/teacher/lesson/assignment/assignment_detail",
-                "pages/teacher/lesson/assignment/student_submission",
-    "pages/index/index",
-    "pages/homework1/homework1",
-    "pages/class1work_index/class1work_index"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "身份认证",
-    "navigationBarTextStyle":"black"
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "useExtendedLib": {
-    "weui": true
-  }
+        "pages/teacher/lesson/lesson",
+        "pages/teacher/lesson/create_assignment",
+        "pages/teacher/lesson/assignment/assignment",
+        "pages/teacher/lesson/assignment/assignment_detail",
+        "pages/teacher/lesson/assignment/student_submission",
+        "pages/index/index",
+        "pages/homework1/homework1",
+        "pages/class1work_index/class1work_index",
+        "pages/teacher/lesson_list",
+        "pages/teacher/teacher_setting",
+        "pages/teacher/lesson/assignment_list",
+        "pages/teacher/lesson/student_list"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "身份认证",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "useExtendedLib": {
+        "weui": true
+    }
 }
