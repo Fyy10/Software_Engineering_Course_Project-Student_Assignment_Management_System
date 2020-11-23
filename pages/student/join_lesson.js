@@ -21,28 +21,47 @@ Page({
   },
 
   submitForm() {
+    var Flag=true
+    db.collection("StuLesson").where({
+      id:this.data.lesson_id6,
+      student_id:this.data.student_id
+    }).get().then(res=>{
+      if(res.data>0){
+        Flag=false//已经加入了课程
+      }
+    })
+    if(Flag==true){
       wx.cloud.callFunction({
         name:"findid6",
         data:{
-          lesson_id6:this.data.lesson_id6
-        }
+        lesson_id6:this.data.lesson_id6
+      }
       }).then(res=>{
         console.log(res.result.data)
         var lesson=res.result.data
-        if(lesson.length>0){
+        console.log(lesson[0])
+        if(lesson.length!=''){
           db.collection("StuLesson").add({
             data:{
-              lesson_id:lesson._id,
+              lesson_id:lesson[0]._id,
               student_id:this.data.student_id,
               student_name:this.data.student_name,
-              name:lesson.name,
+              name:lesson[0].name,
               id:this.data.lesson_id6
             }
           }).then(res=>{
             console.log(res)
           })
         }
+        else{
+          console.log("没有这个课程")
+        }
       })
+    }
+    else{
+      console.log("已经加入了课程")
+    }
+    
   },
 
   /**
