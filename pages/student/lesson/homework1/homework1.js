@@ -45,11 +45,8 @@ Page({
         stuassign_id:this.data.stuassign_id
       }
     })
+    this.openToast('提交成功')
   },
-
-
-
-
 
   /**
    * 页面的初始数据
@@ -57,9 +54,50 @@ Page({
   data: {
     imgurl: [],
     hasImg: false,
-    stuassign_id:''
+    stuassign_id:'',
+    assignment_name:'',
+    assignment_disc:'',
+    assignment_id:'',
+    toast: false,
+    hideToastP: false
   },
 
+  openToast: function (content) {
+    this.setData({
+      toast: true,
+      toast_content: content
+    });
+    setTimeout(() => {
+      this.setData({
+        hideToast: true
+      });
+      setTimeout(() => {
+        this.setData({
+          toast: false,
+          hideToast: false,
+        });
+      }, 300);
+    }, 3000);
+  },
+
+  getAssignment(){
+    db.collection("StuAssign").doc(this.data.stuassign_id).get()
+    .then(res=>{
+      console.log(res)
+      this.setData({
+        assignment_id:res.data.assignment_id,
+        assignment_name:res.data.assignment_name
+      })
+      db.collection("assignmentlist").doc(this.data.assignment_id).get()
+      .then(res=>{
+        console.log(res)
+        this.setData({
+          assignment_disc:res.data.disc
+        })
+      })
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -67,6 +105,7 @@ Page({
     this.setData({
       stuassign_id:options.stuassign_id
     })
+    this.getAssignment()
   },
 
   /**

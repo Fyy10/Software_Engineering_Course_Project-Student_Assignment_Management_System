@@ -13,6 +13,13 @@
                         placeholder-class="weui-input__placeholder" />
                 </view>
             </view>
+            <view class="weui-cell weui-cell_active" wx:if="{{id_valid}}">
+                <view class="weui-cell__hd"><label class="weui-label">课程名称</label></view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="{{lesson_name}}"
+                        placeholder-class="weui-input__placeholder" disabled/>
+                </view>
+            </view>
         </view>
     </view>
     <view class="weui-form__opr-area">

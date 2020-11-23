@@ -14,9 +14,9 @@
         </a>
         <a class="weui-grid" bindtap="goGiveScore">
 			<view class="weui-grid__icon">
-				<mp-icon icon="comment" size="{{25}}"></mp-icon>
+				<mp-icon icon="commentxxx" size="{{25}}"></mp-icon>
 			</view>
-			<view class="weui-grid__label" >批改作业</view>
+			<view class="weui-grid__label" >        </view>
 		</a>
 		<a class="weui-grid" bindtap="goTeacherSetting">
 			<view class="weui-grid__icon">

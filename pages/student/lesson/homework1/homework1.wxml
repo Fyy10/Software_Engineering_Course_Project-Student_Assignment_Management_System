@@ -1,8 +1,8 @@
 <!--pages/homework1/homework1.wxml-->
 <view class="weui-media-box weui-media-box_text info_1">
-    <view class="work">作业名</view>
+    <view class="work">{{assignment_name}}</view>
     <textarea>
-        作业描述：
+        {{assignment_disc}}
     </textarea>
     <view></view>
 </view>
@@ -23,3 +23,12 @@
 <form bindsubmit="submit">
     <button form-type="submit">提交</button>
 </form>
+
+<!-- success -->
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+    <view class="weui-mask_transparent"></view>
+    <view class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <view class="weui-toast__content">{{toast_content}}</view>
+    </view>
+</view>

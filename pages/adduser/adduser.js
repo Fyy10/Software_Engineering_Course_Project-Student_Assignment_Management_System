@@ -145,10 +145,22 @@ Page({
       filePath:path,//文件路径
       success:res=>{
         console.log("上传成功", res.fileID)
+        wx.showToast({
+          title: '导入成功',
+        })
         that.jiexi(res.fileID)
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 0,
+          })
+        }, 700)
+        //返回的太快了！！！
       },
       fail:err=>{
         console.log("上传失败",err)
+        wx.showToast({
+          title: '导入失败',
+        })
       }
     })
   },

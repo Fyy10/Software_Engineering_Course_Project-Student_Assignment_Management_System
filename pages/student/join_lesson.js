@@ -15,7 +15,9 @@ Page({
     toast_content: '',
     lesson_id6: '',
     student_id: '',
-    student_name: ''
+    student_name: '',
+    lesson_name: '',
+    id_valid: false
 
   },
 
@@ -35,6 +37,9 @@ Page({
         });
       }, 300);
     }, 3000);
+    wx.navigateBack({
+      delta: 0,
+    })
   },
   openWarnToast: function (content) {
     this.setData({
@@ -59,6 +64,18 @@ Page({
     this.setData({
       lesson_id6: e.detail.value
     })
+    wx.cloud.callFunction({
+      name: "findid6",
+      data: {
+        lesson_id6: this.data.lesson_id6
+      }
+    }).then(res=>{
+      var lesson = res.result.data
+      this.setData ({
+        lesson_name: lesson[0].name,
+        id_valid: true,
+      })
+    })
   },
 
   submitForm() {
@@ -82,6 +99,7 @@ Page({
           console.log(res.result.data)
           var lesson = res.result.data
           console.log(lesson[0])
+          
           if (lesson.length != '') {
             db.collection("StuLesson").add({
               data: {
@@ -106,6 +124,8 @@ Page({
                         status: "未完成",
                         img: ""
                       }
+                    }).then(res=>{
+                      console.log(res)
                     })
                   }
                 })

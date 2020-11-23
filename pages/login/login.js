@@ -65,6 +65,7 @@ Page({
         }
       }
       for(var i=0; i<this.data.studentusernames.length; i++){
+        console.log(this.data.studentusernames)
         if (this.data.username == this.data.studentusernames[i] && this.data.password == this.data.studentpasswords[i]){
           studentflag=true
           var student_id=this.data.students_id[i]
@@ -78,6 +79,7 @@ Page({
           }, 700)
         }
       }
+      console.log(studentflag)
       if(teacherflag==false&&studentflag==false){
         this.setData({
           error: '用户名或密码错误'
