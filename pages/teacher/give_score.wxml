@@ -4,7 +4,7 @@
     <view wx:for="{{lesson_itm.assignment_list}}" wx:for-item="assignment_itm">
         <navigator wx:for="{{assignment_itm.student_list}}" wx:for-item="student_itm" url="./lesson/assignment/student_submission" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">{{assignment_itm.assignment_name}}</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access">{{student_itm}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{student_itm.student_name}}</view>
         </navigator>
     </view>
 </view>
