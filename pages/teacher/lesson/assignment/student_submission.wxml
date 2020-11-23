@@ -12,11 +12,16 @@
 </view>
 
 <!-- 这里要放提交的作业图片 -->
+<view wx:for-items="{{imgurl}}" wx:for-item="item" wx:key="*this">
+    <image mode="widthFix" src="{{item}}" class="picture" bindtap="previewImg"></image>
+</view>
+
 
 <!-- score -->
 <view class="weui-cell weui-cell_active">
     <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="请输入成绩" focus style="border:1rpx solid #ccc" bindinput="getInput" type="number"/>
+        <input class="weui-input" placeholder="请输入成绩" focus style="border:1rpx solid #ccc" bindinput="getInput"
+            type="number" />
     </view>
 </view>
 
