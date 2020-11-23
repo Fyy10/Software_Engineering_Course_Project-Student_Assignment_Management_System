@@ -1,50 +1,25 @@
 <!--pages/homework1/homework1.wxml-->
 <view class="weui-media-box weui-media-box_text info_1">
-   
-
-
-
-    <view class="work">第一{{}}次作业</view>
+    <view class="work">作业名</view>
     <textarea>
-        作业描述：{{}}
-
+        作业描述：
     </textarea>
     <view></view>
-    
-
-
-
 </view>
-
 <view class="weui-media-box weui-media-box_text info_1">
-   
-
-
-
-   <view class="work_2">已提交的内容：</view>
-   
-   <view wx:if="{{hasImg == false}}">
-       <text>无
-       </text>
-   </view>
-   
-   <view wx:if="{{!!imgurl}}">
-
-    <view wx:for-items="{{imgurl}}" wx:for-item="item" wx:key="*this">
-        <image mode="widthFix" src="{{item}}" class="picture"  bindtap="previewImg"></image>
+    <view class="work_2">已提交的内容：</view>
+    <view wx:if="{{hasImg == false}}">
+        <text>无
+        </text>
     </view>
-
-   </view>
-
-
-
+    <view wx:if="{{!!imgurl}}">
+        <view wx:for-items="{{imgurl}}" wx:for-item="item" wx:key="*this">
+            <image mode="widthFix" src="{{item}}" class="picture" bindtap="previewImg"></image>
+        </view>
+    </view>
 </view>
 
-<button class="btn1" type="primary"  bindtap="chooseImg" plain>上传作业</button>
-
-
-
-<form bindsubmit="onSubmit">
+<button class="btn1" type="primary" bindtap="chooseImg" plain>上传作业</button>
+<form bindsubmit="submit">
     <button form-type="submit">提交</button>
- </form>
-
+</form>
