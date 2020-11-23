@@ -7,7 +7,11 @@ Page({
     data: {
         score: null,
         toast: false,
-        hideToast: false
+        hideToast: false,
+        student_id:'',
+        assignment_disc:'',
+        assignment_name:'',
+        stuass_id:''
     },
 
     getInput: function(e) {
@@ -17,6 +21,15 @@ Page({
     },
 
     Submit: function() {
+        wx.cloud.callFunction({
+            name:"upscore",
+            data:{
+                score:this.data.score,
+                stuass_id:this.data.stuass_id
+            }
+        }).then(res=>{
+            console.log(res)
+        })
         this.setData({
             toast: true
         });
@@ -40,7 +53,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            student_id:options.student,
+            assignment_disc:options.assignment_disc,
+            assignment_name:options.assignment_name,
+            stuass_id:options.stuass_id
+        })
     },
 
     /**

@@ -1,8 +1,8 @@
 <!--pages/login/teacher/lesson/assignment/student_submission.wxml-->
 
 <view class="weui-media-box weui-media-box_text">
-    <h4 class="weui-media-box__title">作业1</h4>
-    <view class="weui-media-box__desc">作业1的描述文字</view>
+    <h4 class="weui-media-box__title">{{assignment_name}}</h4>
+    <view class="weui-media-box__desc">{{assignment_disc}}</view>
 </view>
 
 <view class="page__bd">

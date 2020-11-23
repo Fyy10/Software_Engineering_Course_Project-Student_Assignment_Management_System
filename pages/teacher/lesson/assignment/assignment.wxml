@@ -12,7 +12,7 @@
 
 <!-- student list and scores -->
 <view class="weui-cells__title">学生作业情况</view>
-<navigator wx:for="{{student_list}}" url="./student_submission" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+<navigator wx:for="{{student_list}}"  url="./student_submission?student={{item.student_id}}&stuass_id={{item._id}}&assignment_name={{assignment_name}}&assignment_disc={{assignment_disc}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
     <view class="weui-cell__bd">{{item.student_name}}</view>
     <view class="weui-cell__ft weui-cell__ft_in-access">{{item.status}}</view>
 </navigator>
