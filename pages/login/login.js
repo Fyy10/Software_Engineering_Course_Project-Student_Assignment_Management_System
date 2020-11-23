@@ -94,7 +94,7 @@ Page({
     .then(res=>{
       console.log(res)
       for(var index in res.data){
-        this.data.studentusernames.push(res.data[index].name)
+        this.data.studentusernames.push(res.data[index].id)
         this.data.studentpasswords.push(res.data[index].password)
         this.data.students_id.push(res.data[index]._id)
       }
@@ -103,7 +103,7 @@ Page({
     .then(res=>{
       console.log(res)
       for(var index in res.data){
-        this.data.teacherusernames.push(res.data[index].name)
+        this.data.teacherusernames.push(res.data[index].id)
         this.data.teacherpasswords.push(res.data[index].password)
         this.data.teachers_id.push(res.data[index]._id)
       }
