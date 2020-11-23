@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    lesson_id6: ''
+    lesson_id6: '',
+    student_id:'',
+    student_name:''
 
   },
 
@@ -19,14 +21,38 @@ Page({
   },
 
   submitForm() {
-      
+      wx.cloud.callFunction({
+        name:"findid6",
+        data:{
+          lesson_id6:this.data.lesson_id6
+        }
+      }).then(res=>{
+        console.log(res.result.data)
+        var lesson=res.result.data
+        if(lesson.length>0){
+          db.collection("StuLesson").add({
+            data:{
+              lesson_id:lesson._id,
+              student_id:this.data.student_id,
+              student_name:this.data.student_name,
+              name:lesson.name,
+              id:this.data.lesson_id6
+            }
+          }).then(res=>{
+            console.log(res)
+          })
+        }
+      })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      student_id:options.student_id,
+      student_name:options.student_name
+    })
   },
 
   /**

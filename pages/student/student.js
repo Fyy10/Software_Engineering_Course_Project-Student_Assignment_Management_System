@@ -26,7 +26,7 @@ Page({
     //goto scoring page
     goJoinLesson: function() {
         wx.navigateTo({
-          url: './join_lesson?student_id=' + this.data.student_id,
+          url: './join_lesson?student_id=' + this.data.student_id+'&student_name='+this.data.student_name,
         })
     },
 
