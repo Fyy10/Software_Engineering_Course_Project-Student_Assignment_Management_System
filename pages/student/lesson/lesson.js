@@ -1,4 +1,5 @@
 // pages/homework_index/homework_index.js
+const db=wx.cloud.database()
 Page({
 
   /**
@@ -26,13 +27,29 @@ Page({
         status: '已批改',
         score: 96
       }
-    ]
+    ],
+    student_id:'',
+    lensson_id:''
   },
 
+    getAssign(){
+      db.collection("StuAssign").where({
+        student_id:this.data.student_id
+      }).get().then(res=>{
+        this.setData({
+          assignment_list:res.data
+        })
+      })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      student_id:options.student_id,
+      lensson_id:options.lensson_id
+    })
+    this.getAssign()
 
   },
 

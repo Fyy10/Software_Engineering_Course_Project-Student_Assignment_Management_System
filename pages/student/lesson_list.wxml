@@ -26,7 +26,7 @@
     </navigator>
 
     <!-- normal lesson list -->
-    <navigator wx:if="{{!inputShowed}}" class="weui-cell weui-cell_active weui-cell_access" wx:for="{{lesson_list}}" wx:key="index" wx:for-index="idx" url="./lesson/lesson?_id={{lesson_list[idx]._id}}">
+    <navigator wx:if="{{!inputShowed}}" class="weui-cell weui-cell_active weui-cell_access" wx:for="{{lesson_list}}" wx:key="index" wx:for-index="idx" url="./lesson/lesson?lesson_id={{lesson_list[idx]._id}}&student_id={{student_id}}">
     <view class="weui-cell__bd">
         <text style="vertical-align: middle;">{{item.name}}</text>
     </view>

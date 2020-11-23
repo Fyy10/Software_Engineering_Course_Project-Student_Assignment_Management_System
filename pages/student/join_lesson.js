@@ -51,6 +51,22 @@ Page({
             }
           }).then(res=>{
             console.log(res)
+            db.collection("lessonlist").doc(lesson[0]._id).get()
+            .then(res=>{
+              var assign_id = res.data.assign_id
+              for(var i =0;i<assign_id.length;i++){
+                db.collection("StuAssign").add({
+                  data:{
+                    assignment_id:assign_id[i],
+                    assignment_name:res.data.assignname[i],
+                    student_id:this.data.student_id,
+                    student_name:this.data.student_name,
+                    status:"未完成",
+                    img:""
+                  }
+                })
+              }
+            })
           })
         }
         else{
