@@ -78,6 +78,11 @@
           "pathName": "pages/teacher/lesson/assignment/assignment",
           "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
           "scene": null
+        },
+        {
+          "name": "pages/student/join_lesson",
+          "pathName": "pages/student/join_lesson",
+          "scene": null
         }
       ]
     }
