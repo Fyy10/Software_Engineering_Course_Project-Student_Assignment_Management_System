@@ -38,12 +38,8 @@ Page({
   },
   inputID: function (e) {
     this.setData({
+        password: e.detail.value,
         id: e.detail.value
-    })
-  },
-  inputPassword: function (e) {
-    this.setData({
-        password: e.detail.value
     })
   },
 
