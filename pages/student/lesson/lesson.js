@@ -5,7 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    assignment_list: [
+      {
+        assignment_name: '作业1',
+        status: '未完成',
+        score: ''
+      },
+      {
+        assignment_name: '作业2',
+        status: '未完成',
+        score: ''
+      },
+      {
+        assignment_name: '作业3',
+        status: '已完成',
+        score: ''
+      },
+      {
+        assignment_name: '作业1',
+        status: '已批改',
+        score: 96
+      }
+    ]
   },
 
   /**

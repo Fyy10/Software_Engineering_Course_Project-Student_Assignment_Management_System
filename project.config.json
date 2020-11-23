@@ -1,90 +1,90 @@
 {
-  "description": "项目配置文件",
-  "cloudfunctionRoot": "cloudfunctions/",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": true,
-    "es6": true,
-    "enhance": false,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": false,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
+    "description": "项目配置文件",
+    "cloudfunctionRoot": "cloudfunctions/",
+    "packOptions": {
+        "ignore": []
     },
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "enableEngineNative": false,
-    "minifyWXSS": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.13.2",
-  "projectname": "Student_Assignment_Management_System",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "appid": "wx23a2ab2b394f96c6",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/teacher/teacher",
-          "pathName": "pages/teacher/teacher",
-          "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
-          "scene": null
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "enhance": false,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": false,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": false,
+        "useApiHook": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
         },
-        {
-          "name": "pages/teacher/lesson/lesson",
-          "pathName": "pages/teacher/lesson/lesson",
-          "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
-          "scene": null
+        "useIsolateContext": true,
+        "useCompilerModule": true,
+        "userConfirmedUseCompilerModuleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "enableEngineNative": false,
+        "minifyWXSS": true
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.13.2",
+    "projectname": "Student_Assignment_Management_System",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "scripts": {},
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "appid": "wx23a2ab2b394f96c6",
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/teacher/lesson/assignment/assignment",
-          "pathName": "pages/teacher/lesson/assignment/assignment",
-          "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/student/join_lesson",
-          "pathName": "pages/student/join_lesson",
-          "scene": null
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/teacher/teacher",
+                    "pathName": "pages/teacher/teacher",
+                    "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
+                    "scene": null
+                },
+                {
+                    "name": "pages/teacher/lesson/lesson",
+                    "pathName": "pages/teacher/lesson/lesson",
+                    "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
+                    "scene": null
+                },
+                {
+                    "name": "pages/teacher/lesson/assignment/assignment",
+                    "pathName": "pages/teacher/lesson/assignment/assignment",
+                    "query": "teacher_id=13c6ced75fa55293000bf1a13d61553b",
+                    "scene": null
+                },
+                {
+                    "name": "pages/student/join_lesson",
+                    "pathName": "pages/student/join_lesson",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }
