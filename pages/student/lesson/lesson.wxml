@@ -4,10 +4,10 @@
     <view class="kind-list">
       <view wx:for="{{assignment_list}}" class="kind-list-item">
         <view bindtap="kindToggle" class="weui-media-box weui-media-box_text info_1" id="view">
-          <navigator class="kind-list-text" url="/pages/student/lesson/homework1/homework1">
+          <navigator class="kind-list-text" url="/pages/student/lesson/homework1/homework1?stuassign_id={{item._id}}">
             <text>{{item.assignment_name}}</text>
             <!-- <view class="index-right">截止日期：2020.11.1</view> -->
-            <view>成绩：{{item.score}}</view>
+            <view wx:if="{{item.status != '未完成' && item.status != '未批改'}}">成绩：{{item.status}}</view>
           </navigator>
           <button wx:if="{{item.status == '未完成'}}" class="microbutton" type="warn">未完成</button>
           <button wx:if="{{item.status == '未批改'}}" class="microbutton" type="default">未批改</button>

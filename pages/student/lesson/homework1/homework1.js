@@ -38,7 +38,13 @@ Page({
   //作业提交上传到云数据库(待完成)
   submit: function (path) {
     console.log('submit')
-    wx.cloud
+    wx.cloud.callFunction({
+      name:"upassign",
+      data:{
+        imgurl:this.data.imgurl,
+        stuassign_id:this.data.stuassign_id
+      }
+    })
   },
 
 
@@ -51,13 +57,16 @@ Page({
   data: {
     imgurl: [],
     hasImg: false,
+    stuassign_id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      stuassign_id:options.stuassign_id
+    })
   },
 
   /**
