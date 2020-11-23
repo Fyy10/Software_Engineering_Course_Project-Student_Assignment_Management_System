@@ -1,11 +1,25 @@
 // pages/student/join_lesson.js
+const app = getApp()
+const db=wx.cloud.database()//连接数据库
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    lesson_id6: ''
 
+  },
+
+  inputLessonid: function (e) {
+    this.setData({
+        lesson_id6: e.detail.value
+    })
+  },
+
+  submitForm() {
+      
   },
 
   /**
