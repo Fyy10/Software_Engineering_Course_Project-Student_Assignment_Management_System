@@ -10,7 +10,8 @@ const db=cloud.database();
 exports.main = async (event, context) => {
   db.collection("StuAssign").doc(event.stuassign_id).update({
     data:{
-      img:event.imgurl
+      img:event.imgurl,
+      status:"未批改"
     }
   })
 }

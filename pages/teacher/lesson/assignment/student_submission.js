@@ -1,4 +1,6 @@
 // pages/login/teacher/lesson/assignment/student_submission.js
+const db = wx.cloud.database()
+
 Page({
 
     /**
@@ -8,26 +10,34 @@ Page({
         score: null,
         toast: false,
         hideToast: false,
-        student_id:'',
-        assignment_disc:'',
-        assignment_name:'',
-        stuass_id:''
+        student_id: '',
+        assignment_disc: '',
+        assignment_name: '',
+        stuass_id: '',
+        imgurl: [],
     },
 
-    getInput: function(e) {
+    previewImg: function (e) {
+        wx.previewImage({
+            current: e.currentTarget.dataset.src,
+            urls: this.data.imgurl,
+        })
+    },
+
+    getInput: function (e) {
         this.setData({
             score: e.detail.value
         })
     },
 
-    Submit: function() {
+    Submit: function () {
         wx.cloud.callFunction({
-            name:"upscore",
-            data:{
-                score:this.data.score,
-                stuass_id:this.data.stuass_id
+            name: "upscore",
+            data: {
+                score: this.data.score,
+                stuass_id: this.data.stuass_id
             }
-        }).then(res=>{
+        }).then(res => {
             console.log(res)
         })
         this.setData({
@@ -44,21 +54,32 @@ Page({
                 });
                 wx.navigateBack({
                     delta: 0,
-                  })          
+                })
             }, 300);
         }, 1000);
     },
 
+    getstuassign(){
+        db.collection("StuAssign").doc(this.data.stuass_id).get()
+        .then(res=>{
+            this.setData({
+                imgurl:res.data.img
+            })
+          
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         this.setData({
-            student_id:options.student,
-            assignment_disc:options.assignment_disc,
-            assignment_name:options.assignment_name,
-            stuass_id:options.stuass_id
+            student_id: options.student,
+            assignment_disc: options.assignment_disc,
+            assignment_name: options.assignment_name,
+            stuass_id: options.stuass_id
         })
+        this.getstuassign()
+
     },
 
     /**
